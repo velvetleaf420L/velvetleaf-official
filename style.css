@@ -4,14 +4,17 @@ padding:0;
 box-sizing:border-box;
 }
 
+
 body{
 
 min-height:100vh;
 
 background:
-radial-gradient(circle at top,
+radial-gradient(
+circle at top,
 rgba(216,170,40,.25),
-transparent 30%),
+transparent 30%
+),
 linear-gradient(
 180deg,
 #0d0d0d,
@@ -34,6 +37,7 @@ padding:40px;
 }
 
 
+
 .container{
 
 width:100%;
@@ -45,6 +49,7 @@ text-align:center;
 }
 
 
+
 /* HEADER */
 
 header{
@@ -52,6 +57,7 @@ header{
 margin-bottom:45px;
 
 }
+
 
 
 .logo{
@@ -72,6 +78,7 @@ text-shadow:
 }
 
 
+
 .subtitle{
 
 margin-top:15px;
@@ -85,6 +92,7 @@ color:#bdbdbd;
 }
 
 
+
 .verified{
 
 margin-top:22px;
@@ -96,38 +104,8 @@ color:#00ff88;
 }
 
 
-/* CARDS */
 
-section{
-
-background:
-
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.02)
-);
-
-border:
-
-1px solid rgba(216,170,40,.5);
-
-border-radius:28px;
-
-padding:35px;
-
-margin-bottom:25px;
-
-backdrop-filter:blur(20px);
-
-box-shadow:
-
-0 0 40px rgba(0,0,0,.7);
-
-}
-
-
-/* TELEGRAM */
+/* TELEGRAM AREA */
 
 .telegram{
 
@@ -135,7 +113,10 @@ font-size:22px;
 
 font-weight:bold;
 
+margin-bottom:20px;
+
 }
+
 
 
 .button{
@@ -143,6 +124,8 @@ font-weight:bold;
 display:inline-block;
 
 margin-top:25px;
+
+margin-bottom:40px;
 
 padding:16px 50px;
 
@@ -171,6 +154,7 @@ transition:.3s;
 }
 
 
+
 .button:hover{
 
 transform:scale(1.05);
@@ -178,11 +162,44 @@ transform:scale(1.05);
 }
 
 
+
+/* CARDS */
+
+section{
+
+background:
+
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
+
+border:
+
+1px solid rgba(216,170,40,.5);
+
+border-radius:28px;
+
+padding:35px;
+
+margin-bottom:35px;
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+
+0 0 40px rgba(0,0,0,.7);
+
+}
+
+
+
 /* CODE */
 
 #code{
 
-margin-top:25px;
+margin-top:35px;
 
 padding:35px;
 
@@ -204,12 +221,14 @@ letter-spacing:8px;
 
 color:#d8aa28;
 
+
 box-shadow:
 
 inset 0 0 20px rgba(216,170,40,.25),
 0 0 30px rgba(216,170,40,.3);
 
 }
+
 
 
 /* STATUS */
@@ -234,6 +253,7 @@ font-size:18px;
 font-weight:bold;
 
 }
+
 
 
 /* NOTICE */
@@ -265,6 +285,7 @@ font-size:16px;
 }
 
 
+
 /* FOOTER */
 
 footer{
@@ -274,6 +295,7 @@ margin-top:35px;
 color:#777;
 
 }
+
 
 
 /* MOBILE */
