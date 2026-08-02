@@ -263,6 +263,7 @@ box-shadow:
     background:#00ff88;
     border-radius:50%;
     display:inline-block;
+    vertical-align:middle;
     box-shadow:0 0 15px #00ff88;
     animation:pulse 1.5s infinite;
 }
