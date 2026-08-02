@@ -284,15 +284,23 @@ box-shadow:
 }
 
 .verify-card{
-
-    border-color:#ff3b3b;
-
+    background:rgba(10,10,10,0.75);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(212,175,55,0.65);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:
+    0 0 25px rgba(212,175,55,0.12);
 }
 
 
 .verify-card h2{
 
-    color:#ff5252;
+    .verify-card h2{
+    color:#d4af37;
+    text-shadow:0 0 10px rgba(212,175,55,.5);
+}
 
 }
 
