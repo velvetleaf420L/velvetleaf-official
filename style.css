@@ -722,3 +722,10 @@ margin-top:30px;
 
 
 }
+/* =====================================
+IOS SAFARI FIX
+===================================== */
+
+@supports (-webkit-touch-callout: none) {
+...
+}
