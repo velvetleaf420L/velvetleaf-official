@@ -21,3 +21,25 @@ function generateDailyCode() {
 }
 
 generateDailyCode();
+
+function updateDate(){
+
+    const today = new Date();
+
+    const options = {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    };
+
+    const date = today.toLocaleDateString("en-AU", options);
+
+    const dateBox = document.getElementById("updated-date");
+
+    if(dateBox){
+        dateBox.innerText = date.toUpperCase();
+    }
+
+}
+
+updateDate();
