@@ -429,3 +429,16 @@ header p{
 }
 
 }
+
+/* LOGO DESKTOP FIX */
+
+.logo{
+    display:block;
+    width:260px;
+    max-width:80%;
+    margin:0 auto 20px auto;
+}
+
+header{
+    text-align:center;
+}
