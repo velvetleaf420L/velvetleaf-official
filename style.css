@@ -729,3 +729,41 @@ IOS SAFARI FIX
 @supports (-webkit-touch-callout: none) {
 ...
 }
+/* FINAL MOBILE OVERRIDE */
+
+@media screen and (max-width:600px){
+
+.wrapper{
+padding:40px 16px !important;
+}
+
+section{
+width:100% !important;
+padding:24px 18px !important;
+}
+
+.hero h1{
+font-size:38px !important;
+letter-spacing:5px !important;
+}
+
+section h2{
+font-size:20px !important;
+line-height:1.25 !important;
+}
+
+#code{
+font-size:40px !important;
+letter-spacing:3px !important;
+}
+
+.status-card{
+display:flex !important;
+flex-direction:column !important;
+}
+
+.status-box{
+width:100% !important;
+}
+
+}
