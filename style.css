@@ -1,711 +1,295 @@
-/* =====================================
-VELVET LEAF V4 LUXURY SYSTEM
-BASE
-===================================== */
-
-
 *{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
 
 body{
 
-min-height:100vh;
+    min-height:100vh;
 
-font-family:
+    background:
+    radial-gradient(circle at top,
+    rgba(212,170,40,0.22),
+    transparent 35%),
+    linear-gradient(
+    180deg,
+    #080808,
+    #000000
+    );
 
-"Inter",
-Arial,
-sans-serif;
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-color:#fff;
+    color:white;
 
-background:
+    display:flex;
+    justify-content:center;
 
-radial-gradient(
-circle at 50% -10%,
-rgba(212,175,55,.35),
-transparent 35%
-),
-
-radial-gradient(
-circle at 20% 80%,
-rgba(212,175,55,.12),
-transparent 30%
-),
-
-linear-gradient(
-180deg,
-#0a0a0a,
-#020202
-);
-
-
-overflow-x:hidden;
+    padding:40px 18px;
 
 }
 
 
-/* GOLD LIGHT EFFECT */
+.container{
 
-body::before{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-background:
-
-linear-gradient(
-120deg,
-transparent 35%,
-rgba(212,175,55,.08),
-transparent 65%
-);
-
-
-animation:
-shine 8s infinite;
-
-
-pointer-events:none;
+    width:100%;
+    max-width:520px;
 
 }
 
 
-@keyframes shine{
+/* HEADER */
 
-0%{
+header{
 
-transform:translateX(-100%);
+    text-align:center;
 
-}
-
-
-50%{
-
-transform:translateX(100%);
-
-}
-
-
-100%{
-
-transform:translateX(100%);
-
-}
-
-}
-
-
-
-/* MAIN */
-
-.wrapper{
-
-width:100%;
-
-max-width:850px;
-
-margin:auto;
-
-padding:70px 25px;
-
-position:relative;
-
-}
-
-
-
-/* HERO */
-
-.hero{
-
-text-align:center;
-
-padding-bottom:50px;
+    margin-bottom:55px;
 
 }
 
 
 .logo{
 
-font-size:90px;
+    font-size:70px;
 
-filter:
+    filter:
+    drop-shadow(0 0 20px #d9b441);
 
-drop-shadow(
-0 0 35px rgba(212,175,55,.8)
-);
-
-
-margin-bottom:20px;
+    margin-bottom:15px;
 
 }
 
 
+h1{
 
-.hero h1{
+    font-size:42px;
 
-font-size:80px;
+    letter-spacing:8px;
 
-letter-spacing:15px;
+    color:#e6bf4b;
 
-font-weight:900;
-
-
-background:
-
-linear-gradient(
-180deg,
-#fff1a8,
-#d4af37
-);
-
-
--webkit-background-clip:text;
-
--webkit-text-fill-color:transparent;
-
-
-text-shadow:
-
-0 0 40px rgba(212,175,55,.35);
+    text-shadow:
+    0 0 20px rgba(230,191,75,.5);
 
 }
 
 
+header p{
 
-.subtitle{
+    margin-top:15px;
 
-margin-top:20px;
+    letter-spacing:6px;
 
-font-size:18px;
+    color:#aaa;
 
-letter-spacing:8px;
-
-color:#aaa;
+    font-size:14px;
 
 }
-
 
 
 .verified{
 
-display:inline-block;
+    margin-top:25px;
 
-margin-top:30px;
+    display:inline-block;
 
-padding:14px 35px;
+    padding:10px 25px;
 
-border-radius:50px;
+    border-radius:30px;
 
-background:
+    border:1px solid #00ff88;
 
-rgba(0,40,20,.5);
+    color:#00ff88;
 
-
-border:
-
-1px solid rgba(0,255,130,.5);
-
-
-color:#6dffae;
-
-
-backdrop-filter:blur(10px);
-
-}
-
-/* =====================================
-V4 LUXURY CARD SYSTEM
-===================================== */
-
-
-section{
-
-position:relative;
-
-margin-top:35px;
-
-padding:40px;
-
-border-radius:30px;
-
-
-background:
-
-linear-gradient(
-145deg,
-rgba(255,255,255,.09),
-rgba(255,255,255,.02)
-);
-
-
-border:
-
-1px solid
-rgba(212,175,55,.45);
-
-
-backdrop-filter:
-
-blur(25px);
-
-
-box-shadow:
-
-0 25px 80px rgba(0,0,0,.65);
-
-
-overflow:hidden;
-
-
-transition:.4s;
+    background:
+    rgba(0,255,136,.05);
 
 }
 
 
 
-section::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-
-left:0;
-
-right:0;
-
-height:1px;
+/* CARDS */
 
 
-background:
+.card{
 
-linear-gradient(
-90deg,
-transparent,
-#d4af37,
-transparent
-);
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.08),
+    rgba(255,255,255,.02)
+    );
 
+    border:1px solid rgba(212,170,40,.55);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 0 30px rgba(212,170,40,.08);
+
+}
+
+
+.card h2{
+
+    color:#f0c84b;
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+    letter-spacing:1px;
+
+}
+
+
+.card h3{
+
+    font-size:28px;
+
+    margin-bottom:25px;
 
 }
 
 
 
-section:hover{
-
-transform:
-
-translateY(-8px);
+/* TELEGRAM BUTTON */
 
 
-border-color:#f5d76e;
+.telegram-btn{
 
+    display:inline-flex;
 
-box-shadow:
+    justify-content:center;
 
-0 35px 100px rgba(212,175,55,.18);
+    align-items:center;
 
-}
+    width:220px;
 
+    height:55px;
 
+    border-radius:40px;
 
+    background:
+    linear-gradient(
+    90deg,
+    #f2ca45,
+    #c99500
+    );
 
+    color:#000;
 
-/* CARD TITLES */
+    font-weight:bold;
 
+    text-decoration:none;
 
-section h2{
-
-font-size:28px;
-
-letter-spacing:2px;
-
-color:#f5d76e;
-
-margin-bottom:20px;
-
-}
-
-
-
-
-
-/* TELEGRAM */
-
-
-.telegram{
-
-font-size:30px;
-
-font-weight:800;
-
-letter-spacing:2px;
-
-
-color:white;
+    box-shadow:
+    0 0 25px rgba(240,190,40,.5);
 
 }
 
 
 
-
-.button{
-
-
-display:inline-flex;
+/* CODE */
 
 
-align-items:center;
+.code-box{
 
-justify-content:center;
+    margin-top:25px;
 
+    height:130px;
 
-margin-top:30px;
+    display:flex;
 
+    align-items:center;
 
-padding:18px 55px;
+    justify-content:center;
 
+    border-radius:20px;
 
-border-radius:100px;
+    border:2px solid #e5bd32;
 
+    background:#050505;
 
-background:
+    color:#f4ca45;
 
+    font-size:55px;
 
-linear-gradient(
-135deg,
-#f5d76e,
-#b8860b
-);
+    font-weight:bold;
 
+    letter-spacing:8px;
 
-color:#111;
-
-
-font-weight:900;
-
-
-font-size:17px;
-
-
-text-decoration:none;
-
-
-box-shadow:
-
-
-0 0 35px rgba(212,175,55,.45);
-
-
-transition:.35s;
-
+    box-shadow:
+    inset 0 0 25px rgba(240,190,40,.15),
+    0 0 25px rgba(240,190,40,.3);
 
 }
-
-
-
-
-.button:hover{
-
-
-transform:scale(1.08);
-
-
-box-shadow:
-
-
-0 0 60px rgba(212,175,55,.75);
-
-
-}
-
-
-
-
-/* VERIFICATION CODE */
-
-
-#code{
-
-
-margin-top:30px;
-
-
-padding:45px 20px;
-
-
-border-radius:24px;
-
-
-background:
-
-
-linear-gradient(
-145deg,
-#181818,
-#050505
-);
-
-
-
-border:
-
-2px solid #d4af37;
-
-
-
-font-size:70px;
-
-
-font-weight:900;
-
-
-letter-spacing:10px;
-
-
-color:#f5d76e;
-
-
-
-text-shadow:
-
-
-0 0 30px rgba(212,175,55,.7);
-
-
-
-box-shadow:
-
-
-inset 0 0 40px rgba(212,175,55,.15),
-
-0 0 50px rgba(212,175,55,.25);
-
-
-}
-
-
 
 
 
 /* STATUS */
 
 
-.status-card{
+.status-grid{
 
+    display:grid;
 
-display:grid;
+    grid-template-columns:1fr 1fr;
 
-
-grid-template-columns:1fr 1fr;
-
-
-gap:25px;
-
-
-background:none;
-
-
-border:none;
-
-
-box-shadow:none;
-
-
-padding:0;
+    gap:18px;
 
 }
-
-
-
-.status-box{
-
-
-background:
-
-
-rgba(255,255,255,.06);
-
-
-
-border:
-
-1px solid rgba(212,175,55,.35);
-
-
-border-radius:25px;
-
-
-padding:35px;
-
-
-}
-
-
-
 
 
 .active{
 
+    color:#00ff88;
 
-color:#63ff9b;
+    font-size:25px;
 
-
-font-size:22px;
-
-
-font-weight:900;
-
-
-}
-
-/* =====================================
-MOBILE OPTIMIZATION
-===================================== */
-
-@media(max-width:600px){
-
-
-.wrapper{
-
-padding:35px 18px;
+    font-weight:bold;
 
 }
 
 
+.verify-card{
 
-.hero h1{
-
-font-size:42px;
-
-letter-spacing:8px;
+    border-color:#ff3b3b;
 
 }
 
 
-.subtitle{
+.verify-card h2{
 
-font-size:12px;
-
-letter-spacing:5px;
+    color:#ff5252;
 
 }
 
 
+.verify-card p{
 
-.logo{
+    color:#ddd;
 
-font-size:60px;
-
-}
-
-
-
-section{
-
-padding:25px 22px;
-
-margin-top:22px;
-
-border-radius:22px;
+    line-height:1.6;
 
 }
 
 
+.verify-card li{
 
-section h2{
+    margin-top:12px;
 
-font-size:22px;
-
-}
-
-
-
-.telegram{
-
-font-size:24px;
-
-}
-
-
-
-.button{
-
-width:100%;
-
-padding:18px 10px;
-
-font-size:16px;
-
-}
-
-
-
-#code{
-
-font-size:42px;
-
-letter-spacing:5px;
-
-padding:35px 10px;
-
-}
-
-
-
-.status-card{
-
-display:flex;
-
-flex-direction:column;
-
-gap:18px;
-
-}
-
-
-
-.status-box{
-
-padding:25px;
-
-}
-
-
-
-.status-box h2{
-
-font-size:20px;
-
-}
-
-
-
-.notice-card{
-
-margin-top:25px;
-
-}
-
-
-
-.notice-card h2{
-
-font-size:22px;
+    font-size:18px;
 
 }
 
@@ -713,57 +297,90 @@ font-size:22px;
 
 footer{
 
-font-size:13px;
+    text-align:center;
 
-margin-top:30px;
+    color:#888;
+
+    margin-top:35px;
+
+}
+
+
+
+/* MOBILE FIX */
+
+@media(max-width:600px){
+
+
+body{
+
+    padding:25px 14px;
 
 }
 
 
+.logo{
+
+    font-size:55px;
 
 }
-/* =====================================
-IOS SAFARI FIX
-===================================== */
 
-@supports (-webkit-touch-callout: none) {
+
+h1{
+
+    font-size:30px;
+
+    letter-spacing:5px;
 
 }
-/* FINAL MOBILE OVERRIDE */
 
-@media screen and (max-width:600px){
 
-.wrapper{
-padding:40px 16px !important;
+.card{
+
+    padding:24px;
+
+    border-radius:22px;
+
 }
 
-section{
-width:100% !important;
-padding:24px 18px !important;
+
+.card h2{
+
+    font-size:20px;
+
 }
 
-.hero h1{
-font-size:38px !important;
-letter-spacing:5px !important;
+
+.card h3{
+
+    font-size:24px;
+
 }
 
-section h2{
-font-size:20px !important;
-line-height:1.25 !important;
+
+.code-box{
+
+    height:120px;
+
+    font-size:42px;
+
+    letter-spacing:5px;
+
 }
 
-#code{
-font-size:40px !important;
-letter-spacing:3px !important;
+
+.status-grid{
+
+    grid-template-columns:1fr;
+
 }
 
-.status-card{
-display:flex !important;
-flex-direction:column !important;
+
+.telegram-btn{
+
+    width:100%;
+
 }
 
-.status-box{
-width:100% !important;
-}
 
 }
