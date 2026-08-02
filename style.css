@@ -1,0 +1,173 @@
+/* =================================
+   VELVET LEAF OFFICIAL V4
+   STYLE SYSTEM
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+    background:#050505;
+
+    color:#ffffff;
+
+    overflow-x:hidden;
+
+}
+
+
+/* BACKGROUND */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+    radial-gradient(
+    circle at top,
+    rgba(212,175,55,0.18),
+    transparent 40%
+    ),
+
+    linear-gradient(
+    180deg,
+    #111111,
+    #050505
+    );
+
+}
+
+
+/* MAIN */
+
+.wrapper{
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:40px 20px;
+
+}
+
+
+
+/* HERO */
+
+.hero{
+
+    min-height:90vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+.logo{
+
+    font-size:70px;
+
+    margin-bottom:25px;
+
+    filter:
+    drop-shadow(
+    0 0 25px rgba(212,175,55,.5)
+    );
+
+}
+
+
+
+.hero h1{
+
+    font-size:72px;
+
+    letter-spacing:12px;
+
+    font-weight:900;
+
+    color:#D4AF37;
+
+    text-shadow:
+
+    0 0 20px rgba(212,175,55,.35);
+
+}
+
+
+
+.subtitle{
+
+    margin-top:20px;
+
+    color:#aaa;
+
+    font-size:18px;
+
+    letter-spacing:6px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.hero h1{
+
+    font-size:38px;
+
+    letter-spacing:5px;
+
+}
+
+
+.logo{
+
+    font-size:55px;
+
+}
+
+
+.subtitle{
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+}
+
+}
