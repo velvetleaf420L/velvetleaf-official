@@ -1,54 +1,23 @@
-/* =================================
-   VELVET LEAF OFFICIAL
-   VERIFICATION SYSTEM
-================================= */
+function generateDailyCode() {
 
+    const today = new Date();
 
-async function loadVerification(){
+    const day = today.getDate();
+    const month = today.getMonth() + 1;
+    const year = today.getFullYear();
 
-    try{
+    const codeNumber = 
+        String(day).padStart(2, "0") +
+        String(month).padStart(2, "0");
 
-        const response = await fetch(
-            "code.txt?v=" + Date.now()
-        );
+    const code = "VL" + codeNumber;
 
+    const codeBox = document.getElementById("daily-code");
 
-        const data = await response.text();
-
-
-        const lines = data
-        .trim()
-        .split("\n");
-
-
-        const code = lines[0];
-
-        const updated = lines[1];
-
-
-        document.getElementById("code")
-        .innerText = code;
-
-
-        document.getElementById("updated")
-        .innerText = updated;
-
-
-    }
-
-    catch(error){
-
-        document.getElementById("code")
-        .innerText = "ERROR";
-
-
-        document.getElementById("updated")
-        .innerText = "UNAVAILABLE";
-
+    if (codeBox) {
+        codeBox.innerText = code;
     }
 
 }
 
-
-
-loadVerification();
+generateDailyCode();
