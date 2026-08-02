@@ -257,12 +257,12 @@ box-shadow:
     text-shadow:
     0 0 10px rgba(0,255,136,0.8);
 }
-.active::before{
-    content:"";
+.status-dot{
     width:12px;
     height:12px;
     background:#00ff88;
     border-radius:50%;
+    display:inline-block;
     box-shadow:0 0 15px #00ff88;
     animation:pulse 1.5s infinite;
 }
