@@ -1,190 +1,314 @@
-<!DOCTYPE html>
-<html lang="en">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-<head>
+body{
 
-<meta charset="UTF-8">
+min-height:100vh;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+background:
+radial-gradient(circle at top,
+rgba(216,170,40,.25),
+transparent 30%),
+linear-gradient(
+180deg,
+#0d0d0d,
+#020202
+);
 
-<title>Velvet Leaf | Official Verification</title>
+font-family:
+Arial,Helvetica,sans-serif;
 
-<link rel="stylesheet" href="style.css">
+color:white;
 
-</head>
+display:flex;
 
+justify-content:center;
 
-<body>
+align-items:center;
 
+padding:40px;
 
-<div class="page">
+}
 
 
-<header class="hero">
+.container{
 
-<div class="brand-mark">
-✦
-</div>
+width:100%;
 
+max-width:650px;
 
-<h1>
-VELVET LEAF
-</h1>
+text-align:center;
 
+}
 
-<p class="tagline">
-OFFICIAL VERIFICATION PORTAL
-</p>
 
+/* HEADER */
 
-<div class="verified">
-🟢 VERIFIED OFFICIAL
-</div>
+header{
 
-</header>
+margin-bottom:45px;
 
+}
 
 
-<main>
+.logo{
 
+font-size:72px;
 
-<section class="telegram-panel">
+font-weight:900;
 
+letter-spacing:14px;
 
-<h2>
-Official Telegram
-</h2>
+color:#d8aa28;
 
+text-shadow:
 
-<p>
-@velvetleaf420L
-</p>
+0 0 15px #d8aa28,
+0 0 40px rgba(216,170,40,.5);
 
+}
 
-<a class="telegram-btn"
-href="#">
-OPEN TELEGRAM
-</a>
 
+.subtitle{
 
-</section>
+margin-top:15px;
 
+font-size:16px;
 
+letter-spacing:12px;
 
+color:#bdbdbd;
 
+}
 
-<section class="code-panel">
 
+.verified{
 
-<h3>
-TODAY'S VERIFICATION CODE
-</h3>
+margin-top:22px;
 
+font-size:17px;
 
-<div id="code">
-Loading...
-</div>
+color:#00ff88;
 
+}
 
-<p class="valid">
-VALID FOR TODAY ONLY
-</p>
 
+/* CARDS */
 
-</section>
+section{
 
+background:
 
+linear-gradient(
+145deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.02)
+);
 
+border:
 
+1px solid rgba(216,170,40,.5);
 
-<section class="status-panel">
+border-radius:28px;
 
+padding:35px;
 
-<div>
+margin-bottom:25px;
 
-<h3>
-STATUS
-</h3>
+backdrop-filter:blur(20px);
 
-<p class="active">
-🟢 ACTIVE
-</p>
+box-shadow:
 
-</div>
+0 0 40px rgba(0,0,0,.7);
 
+}
 
 
-<div>
+/* TELEGRAM */
 
-<h3>
-LAST UPDATED
-</h3>
+.telegram{
 
-<p id="updated">
-Loading...
-</p>
+font-size:22px;
 
-</div>
+font-weight:bold;
 
+}
 
-</section>
 
+.button{
 
+display:inline-block;
 
+margin-top:25px;
 
+padding:16px 50px;
 
-<section class="security-panel">
+border-radius:50px;
 
+background:
 
-<h2>
-SECURITY CHECK
-</h2>
+linear-gradient(
+90deg,
+#d8aa28,
+#f4d36a
+);
 
+color:#111;
 
-<ul>
+font-weight:900;
 
-<li>
-✓ Official Website
-</li>
+text-decoration:none;
 
+box-shadow:
 
-<li>
-✓ Telegram Username
-</li>
+0 0 25px rgba(216,170,40,.6);
 
+transition:.3s;
 
-<li>
-✓ Verification Code
-</li>
+}
 
 
-</ul>
+.button:hover{
 
+transform:scale(1.05);
 
-</section>
+}
 
 
+/* CODE */
 
-</main>
+#code{
 
+margin-top:25px;
 
+padding:35px;
 
+border-radius:20px;
 
-<footer>
+border:
 
-© 2026 Velvet Leaf Official
+2px solid #d8aa28;
 
-</footer>
 
+background:#050505;
 
 
-</div>
+font-size:55px;
 
+font-weight:900;
 
+letter-spacing:8px;
 
-<script src="script.js"></script>
+color:#d8aa28;
 
+box-shadow:
 
-</body>
+inset 0 0 20px rgba(216,170,40,.25),
+0 0 30px rgba(216,170,40,.3);
 
-</html>
+}
+
+
+/* STATUS */
+
+.status-box h2{
+
+font-size:22px;
+
+color:#d8aa28;
+
+margin-bottom:12px;
+
+}
+
+
+.active{
+
+color:#00ff88;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+/* NOTICE */
+
+.notice-card{
+
+border-color:#ff3333;
+
+}
+
+
+.notice-card h2{
+
+color:#ff4444;
+
+font-size:22px;
+
+}
+
+
+.notice-card li{
+
+list-style:none;
+
+margin-top:15px;
+
+font-size:16px;
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+margin-top:35px;
+
+color:#777;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.logo{
+
+font-size:42px;
+
+letter-spacing:6px;
+
+}
+
+
+.subtitle{
+
+font-size:11px;
+
+letter-spacing:6px;
+
+}
+
+
+section{
+
+padding:25px;
+
+}
+
+
+#code{
+
+font-size:38px;
+
+}
+
+}
