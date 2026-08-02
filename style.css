@@ -384,3 +384,48 @@ h1{
 
 
 }
+/* iOS SAFARI FINAL FIX */
+
+html,body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+@media(max-width:600px){
+
+.container{
+    width:100%;
+    max-width:100%;
+}
+
+header{
+    width:100%;
+    padding:0 15px;
+}
+
+.logo{
+    font-size:45px;
+}
+
+h1{
+    font-size:28px;
+    letter-spacing:3px;
+    white-space:nowrap;
+}
+
+header p{
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.verified{
+    font-size:14px;
+    padding:8px 18px;
+}
+
+.card{
+    width:100%;
+}
+
+}
