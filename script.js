@@ -20,7 +20,6 @@ function generateDailyCode() {
 
 }
 
-generateDailyCode();
 
 function updateDate(){
 
@@ -42,4 +41,9 @@ function updateDate(){
 
 }
 
-updateDate();
+window.onload = function(){
+
+    generateDailyCode();
+    updateDate();
+
+};
