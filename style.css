@@ -1,152 +1,272 @@
-/* =================================
-   VELVET LEAF OFFICIAL V4
-   STYLE SYSTEM
-================================= */
+/* =====================================
+   VELVET LEAF PREMIUM VERIFICATION V2
+===================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    min-height:100vh;
-
-    font-family:
-    "Inter",
-    Arial,
-    sans-serif;
-
-    background:#050505;
-
-    color:#ffffff;
-
-    overflow-x:hidden;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
-/* BACKGROUND */
+body {
 
-.background{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-1;
+    min-height: 100vh;
 
     background:
-
-    radial-gradient(
-    circle at top,
-    rgba(212,175,55,0.18),
-    transparent 40%
-    ),
-
+    radial-gradient(circle at top,
+    rgba(212,170,40,0.18),
+    transparent 35%),
     linear-gradient(
     180deg,
     #111111,
     #050505
     );
 
-}
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-
-/* MAIN */
-
-.wrapper{
-
-    width:100%;
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:40px 20px;
-
-}
-
-
-
-/* HERO */
-
-.hero{
-
-    min-height:90vh;
+    color:white;
 
     display:flex;
-
-    flex-direction:column;
 
     justify-content:center;
 
     align-items:center;
+
+    padding:40px;
+
+}
+
+
+/* MAIN CONTAINER */
+
+.container {
+
+    width:100%;
+
+    max-width:520px;
 
     text-align:center;
 
 }
 
 
-.logo{
+/* HEADER */
 
-    font-size:70px;
+header {
 
-    margin-bottom:25px;
-
-    filter:
-    drop-shadow(
-    0 0 25px rgba(212,175,55,.5)
-    );
+    margin-bottom:35px;
 
 }
 
 
+.logo {
 
-.hero h1{
+    font-size:58px;
 
-    font-size:72px;
-
-    letter-spacing:12px;
+    letter-spacing:10px;
 
     font-weight:900;
 
-    color:#D4AF37;
+    color:#d8aa28;
 
     text-shadow:
-
-    0 0 20px rgba(212,175,55,.35);
+    0 0 20px rgba(216,170,40,.5);
 
 }
 
 
+.subtitle {
 
-.subtitle{
+    margin-top:12px;
 
-    margin-top:20px;
+    letter-spacing:8px;
+
+    font-size:14px;
 
     color:#aaa;
 
-    font-size:18px;
+}
 
-    letter-spacing:6px;
 
-    text-transform:uppercase;
+.verified {
+
+    margin-top:20px;
+
+    color:#00ff88;
+
+    font-size:15px;
 
 }
 
+
+/* ALL CARDS */
+
+section {
+
+    background:
+    rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid
+    rgba(216,170,40,.45);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    margin-top:22px;
+
+    box-shadow:
+    0 0 35px rgba(0,0,0,.5);
+
+}
+
+
+/* TELEGRAM */
+
+.telegram {
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+
+.button {
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:14px 35px;
+
+    border-radius:50px;
+
+    background:#d8aa28;
+
+    color:#050505;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+.button:hover {
+
+    box-shadow:
+    0 0 25px #d8aa28;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* CODE */
+
+#code {
+
+    margin-top:20px;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    border:2px solid #d8aa28;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    color:#d8aa28;
+
+    letter-spacing:5px;
+
+    background:#080808;
+
+}
+
+
+/* STATUS */
+
+.status-box {
+
+    margin-top:15px;
+
+}
+
+
+.status-box h2 {
+
+    color:#d8aa28;
+
+    font-size:18px;
+
+}
+
+
+.active {
+
+    color:#00ff88;
+
+    font-weight:bold;
+
+}
+
+
+/* NOTICE */
+
+.notice-card {
+
+    border-color:#ff3333;
+
+}
+
+
+.notice-card h2 {
+
+    color:#ff4444;
+
+}
+
+
+.notice-card li {
+
+    list-style:none;
+
+    margin-top:10px;
+
+}
+
+
+/* FOOTER */
+
+footer {
+
+    margin-top:30px;
+
+    color:#777;
+
+    font-size:13px;
+
+}
 
 
 /* MOBILE */
 
-@media(max-width:700px){
+@media(max-width:600px){
 
-.hero h1{
+.logo{
 
     font-size:38px;
 
@@ -155,18 +275,16 @@ body{
 }
 
 
-.logo{
+section{
 
-    font-size:55px;
+    padding:22px;
 
 }
 
 
-.subtitle{
+#code{
 
-    font-size:13px;
-
-    letter-spacing:3px;
+    font-size:32px;
 
 }
 
