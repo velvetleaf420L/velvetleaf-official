@@ -1,7 +1,17 @@
+/* =====================================
+VELVET LEAF V4 LUXURY SYSTEM
+BASE
+===================================== */
+
+
 *{
+
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 }
 
 
@@ -9,109 +19,134 @@ body{
 
 min-height:100vh;
 
+font-family:
+
+"Inter",
+Arial,
+sans-serif;
+
+color:#fff;
+
 background:
+
 radial-gradient(
-circle at top,
-rgba(216,170,40,.25),
+circle at 50% -10%,
+rgba(212,175,55,.35),
+transparent 35%
+),
+
+radial-gradient(
+circle at 20% 80%,
+rgba(212,175,55,.12),
 transparent 30%
 ),
+
 linear-gradient(
 180deg,
-#0d0d0d,
+#0a0a0a,
 #020202
 );
 
-font-family:
-Arial,Helvetica,sans-serif;
 
-color:white;
+overflow-x:hidden;
 
-display:flex;
+}
 
-justify-content:center;
 
-align-items:center;
+/* GOLD LIGHT EFFECT */
 
-padding:40px;
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+linear-gradient(
+120deg,
+transparent 35%,
+rgba(212,175,55,.08),
+transparent 65%
+);
+
+
+animation:
+shine 8s infinite;
+
+
+pointer-events:none;
+
+}
+
+
+@keyframes shine{
+
+0%{
+
+transform:translateX(-100%);
+
+}
+
+
+50%{
+
+transform:translateX(100%);
+
+}
+
+
+100%{
+
+transform:translateX(100%);
+
+}
 
 }
 
 
 
-.container{
+/* MAIN */
+
+.wrapper{
 
 width:100%;
 
-max-width:650px;
+max-width:850px;
+
+margin:auto;
+
+padding:70px 25px;
+
+position:relative;
+
+}
+
+
+
+/* HERO */
+
+.hero{
 
 text-align:center;
 
-}
-
-
-
-/* HEADER */
-
-header{
-
-margin-bottom:45px;
+padding-bottom:50px;
 
 }
-
 
 
 .logo{
 
-font-size:72px;
+font-size:90px;
 
-font-weight:900;
+filter:
 
-letter-spacing:14px;
+drop-shadow(
+0 0 35px rgba(212,175,55,.8)
+);
 
-color:#d8aa28;
-
-text-shadow:
-
-0 0 15px #d8aa28,
-0 0 40px rgba(216,170,40,.5);
-
-}
-
-
-
-.subtitle{
-
-margin-top:15px;
-
-font-size:16px;
-
-letter-spacing:12px;
-
-color:#bdbdbd;
-
-}
-
-
-
-.verified{
-
-margin-top:22px;
-
-font-size:17px;
-
-color:#00ff88;
-
-}
-
-
-
-/* TELEGRAM AREA */
-
-.telegram{
-
-font-size:22px;
-
-font-weight:bold;
 
 margin-bottom:20px;
 
@@ -119,218 +154,74 @@ margin-bottom:20px;
 
 
 
-.button{
+.hero h1{
+
+font-size:80px;
+
+letter-spacing:15px;
+
+font-weight:900;
+
+
+background:
+
+linear-gradient(
+180deg,
+#fff1a8,
+#d4af37
+);
+
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+
+text-shadow:
+
+0 0 40px rgba(212,175,55,.35);
+
+}
+
+
+
+.subtitle{
+
+margin-top:20px;
+
+font-size:18px;
+
+letter-spacing:8px;
+
+color:#aaa;
+
+}
+
+
+
+.verified{
 
 display:inline-block;
 
-margin-top:25px;
+margin-top:30px;
 
-margin-bottom:40px;
-
-padding:16px 50px;
+padding:14px 35px;
 
 border-radius:50px;
 
 background:
 
-linear-gradient(
-90deg,
-#d8aa28,
-#f4d36a
-);
+rgba(0,40,20,.5);
 
-color:#111;
-
-font-weight:900;
-
-text-decoration:none;
-
-box-shadow:
-
-0 0 25px rgba(216,170,40,.6);
-
-transition:.3s;
-
-}
-
-
-
-.button:hover{
-
-transform:scale(1.05);
-
-}
-
-
-
-/* CARDS */
-
-section{
-
-background:
-
-linear-gradient(
-145deg,
-rgba(255,255,255,.08),
-rgba(255,255,255,.02)
-);
 
 border:
 
-1px solid rgba(216,170,40,.5);
+1px solid rgba(0,255,130,.5);
 
-border-radius:28px;
 
-padding:35px;
+color:#6dffae;
 
-margin-bottom:35px;
 
-backdrop-filter:blur(20px);
-
-box-shadow:
-
-0 0 40px rgba(0,0,0,.7);
-
-}
-
-
-
-/* CODE */
-
-#code{
-
-margin-top:35px;
-
-padding:35px;
-
-border-radius:20px;
-
-border:
-
-2px solid #d8aa28;
-
-
-background:#050505;
-
-
-font-size:55px;
-
-font-weight:900;
-
-letter-spacing:8px;
-
-color:#d8aa28;
-
-
-box-shadow:
-
-inset 0 0 20px rgba(216,170,40,.25),
-0 0 30px rgba(216,170,40,.3);
-
-}
-
-
-
-/* STATUS */
-
-.status-box h2{
-
-font-size:22px;
-
-color:#d8aa28;
-
-margin-bottom:12px;
-
-}
-
-
-.active{
-
-color:#00ff88;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-
-
-/* NOTICE */
-
-.notice-card{
-
-border-color:#ff3333;
-
-}
-
-
-.notice-card h2{
-
-color:#ff4444;
-
-font-size:22px;
-
-}
-
-
-.notice-card li{
-
-list-style:none;
-
-margin-top:15px;
-
-font-size:16px;
-
-}
-
-
-
-/* FOOTER */
-
-footer{
-
-margin-top:35px;
-
-color:#777;
-
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-.logo{
-
-font-size:42px;
-
-letter-spacing:6px;
-
-}
-
-
-.subtitle{
-
-font-size:11px;
-
-letter-spacing:6px;
-
-}
-
-
-section{
-
-padding:25px;
-
-}
-
-
-#code{
-
-font-size:38px;
-
-}
+backdrop-filter:blur(10px);
 
 }
