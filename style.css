@@ -538,3 +538,15 @@ margin-top:12px;
 color:#d4af37;
 font-size:20px;
 }
+
+.gold-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.gold-link:hover {
+    color: #ffd700;
+    text-shadow: 0 0 10px #d4af37;
+}
