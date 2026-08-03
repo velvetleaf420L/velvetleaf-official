@@ -365,11 +365,12 @@ body{
 
 .logo{
 
-    font-size:55px;
-
+    width:280px !important;
+    max-width:90vw;
+    height:auto;
 }
 
-
+    
 h1{
 
     font-size:30px;
