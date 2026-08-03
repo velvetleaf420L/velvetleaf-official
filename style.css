@@ -319,6 +319,12 @@ box-shadow:
     text-align:center;
 }
 
+.verify-card ul{
+    padding-left:0;
+    text-align:center;
+    
+}
+
 .verify-card li{
 
     text-align:center;
