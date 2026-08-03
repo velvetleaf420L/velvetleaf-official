@@ -21,7 +21,7 @@ min-height:100vh;
 }
 
 header{
-padding:35px 20px 28px;
+padding:34px 20px 28px;
 text-align:center;
 background:linear-gradient(180deg,#151515 0%,#070707 100%);
 border-bottom:1px solid rgba(202,163,75,.45);
@@ -31,8 +31,8 @@ header img{
 width:82px;
 height:82px;
 object-fit:contain;
-margin-bottom:14px;
-filter:drop-shadow(0 0 12px rgba(202,163,75,.25));
+margin-bottom:13px;
+filter:drop-shadow(0 0 13px rgba(202,163,75,.3));
 }
 
 header h1{
@@ -42,26 +42,28 @@ letter-spacing:1px;
 }
 
 header p{
-margin-top:9px;
-color:#a9a9a9;
+margin-top:8px;
+color:#a5a5a5;
 font-size:15px;
 }
 
 .toolbar{
-max-width:1200px;
-margin:auto;
-padding:24px 20px 10px;
+width:100%;
+max-width:1400px;
+margin:0 auto;
+padding:25px 22px 8px;
 }
 
 .search-box{
+width:100%;
 display:flex;
 justify-content:center;
 }
 
 .search-box input{
 width:100%;
-max-width:620px;
-padding:15px 20px;
+max-width:850px;
+padding:15px 22px;
 background:#111111;
 border:1px solid #9c7832;
 border-radius:40px;
@@ -77,14 +79,15 @@ color:#777777;
 
 .search-box input:focus{
 border-color:#e0bb5f;
-box-shadow:0 0 18px rgba(197,154,61,.22);
+box-shadow:0 0 18px rgba(197,154,61,.25);
 }
 
 .categories{
 display:flex;
+justify-content:center;
 gap:10px;
 overflow-x:auto;
-padding:20px 0 10px;
+padding:20px 0 12px;
 scrollbar-width:none;
 }
 
@@ -93,9 +96,9 @@ display:none;
 }
 
 .category-btn{
-padding:11px 18px;
+padding:11px 20px;
 background:#111111;
-border:1px solid #4a4a4a;
+border:1px solid #444444;
 border-radius:30px;
 color:#c9c9c9;
 font-size:14px;
@@ -112,13 +115,14 @@ color:#080808;
 }
 
 .section-title{
-max-width:1200px;
-margin:18px auto 0;
-padding:0 20px;
+width:100%;
+max-width:1400px;
+margin:17px auto 0;
+padding:0 22px;
 }
 
 .section-title h2{
-font-size:24px;
+font-size:25px;
 color:#f0d486;
 }
 
@@ -129,37 +133,43 @@ font-size:14px;
 }
 
 .products{
-max-width:1200px;
-margin:auto;
-padding:24px 20px 50px;
+width:100%;
+max-width:1400px;
+margin:0 auto;
+padding:24px 22px 55px;
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(3,minmax(0,1fr));
 gap:24px;
+align-items:stretch;
 }
 
 .card{
+display:flex;
+flex-direction:column;
 background:linear-gradient(145deg,#151515,#0d0d0d);
 border:1px solid #292929;
 border-radius:20px;
 overflow:hidden;
 transition:.28s;
+min-width:0;
 }
 
 .card:hover{
 transform:translateY(-5px);
 border-color:#9c7832;
-box-shadow:0 14px 35px rgba(0,0,0,.4);
+box-shadow:0 14px 35px rgba(0,0,0,.45);
 }
 
 .image-wrap{
 position:relative;
+height:270px;
 background:#101010;
 overflow:hidden;
 }
 
 .card img{
 width:100%;
-height:260px;
+height:100%;
 display:block;
 object-fit:cover;
 transition:.35s;
@@ -173,10 +183,11 @@ transform:scale(1.035);
 position:absolute;
 top:14px;
 left:14px;
+z-index:2;
 padding:7px 11px;
 border-radius:20px;
-background:rgba(5,5,5,.82);
-border:1px solid rgba(217,182,95,.6);
+background:rgba(5,5,5,.84);
+border:1px solid rgba(217,182,95,.65);
 color:#e5c76f;
 font-size:12px;
 font-weight:bold;
@@ -184,6 +195,9 @@ backdrop-filter:blur(8px);
 }
 
 .card-content{
+display:flex;
+flex-direction:column;
+flex:1;
 padding:19px;
 }
 
@@ -205,7 +219,7 @@ margin-bottom:10px;
 font-size:14px;
 line-height:1.65;
 color:#aaaaaa;
-min-height:68px;
+min-height:70px;
 }
 
 .details{
@@ -226,8 +240,8 @@ font-size:12px;
 
 .view-button{
 width:100%;
-margin-top:18px;
-padding:12px;
+margin-top:auto;
+padding:13px;
 border-radius:10px;
 border:1px solid #9c7832;
 background:transparent;
@@ -245,9 +259,9 @@ color:#080808;
 
 .empty-message{
 display:none;
-max-width:1200px;
+max-width:1400px;
 margin:20px auto 60px;
-padding:30px 20px;
+padding:35px 20px;
 text-align:center;
 color:#888888;
 }
@@ -265,7 +279,7 @@ display:none;
 position:fixed;
 inset:0;
 z-index:1000;
-background:rgba(0,0,0,.82);
+background:rgba(0,0,0,.84);
 padding:20px;
 align-items:center;
 justify-content:center;
@@ -277,15 +291,15 @@ display:flex;
 
 .modal-box{
 width:100%;
-max-width:620px;
+max-width:650px;
 max-height:90vh;
 overflow-y:auto;
 background:#111111;
 border:1px solid #8e6d2f;
 border-radius:22px;
-padding:25px;
+padding:26px;
 position:relative;
-box-shadow:0 25px 80px rgba(0,0,0,.7);
+box-shadow:0 25px 80px rgba(0,0,0,.75);
 }
 
 .close-modal{
@@ -320,7 +334,7 @@ margin-bottom:18px;
 .modal-description{
 color:#b8b8b8;
 font-size:15px;
-line-height:1.7;
+line-height:1.75;
 }
 
 .modal-tags{
@@ -330,19 +344,33 @@ gap:8px;
 margin-top:20px;
 }
 
-@media(max-width:900px){
+@media(max-width:1000px){
 .products{
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(2,minmax(0,1fr));
 }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
 header{
 padding-top:28px;
 }
 
 header h1{
 font-size:29px;
+}
+
+.toolbar{
+padding-left:15px;
+padding-right:15px;
+}
+
+.categories{
+justify-content:flex-start;
+}
+
+.section-title{
+padding-left:15px;
+padding-right:15px;
 }
 
 .products{
@@ -352,22 +380,20 @@ padding-left:15px;
 padding-right:15px;
 }
 
-.toolbar{
-padding-left:15px;
-padding-right:15px;
-}
-
-.section-title{
-padding-left:15px;
-padding-right:15px;
-}
-
-.card img{
-height:240px;
+.image-wrap{
+height:250px;
 }
 
 .card-description{
 min-height:auto;
+}
+
+.modal{
+padding:12px;
+}
+
+.modal-box{
+padding:23px 19px;
 }
 }
 </style>
@@ -398,8 +424,7 @@ aria-label="Search products"
 <button class="category-btn active" data-category="all">All</button>
 <button class="category-btn" data-category="flower">Flower</button>
 <button class="category-btn" data-category="edibles">Edibles</button>
-<button class="category-btn" data-category="extracts">Extracts</button>
-<button class="category-btn" data-category="accessories">Accessories</button>
+<button class="category-btn" data-category="extracts">Carts</button>
 </div>
 
 </section>
@@ -411,11 +436,13 @@ aria-label="Search products"
 
 <section class="products" id="productGrid">
 
+<!-- AK -->
+
 <article
 class="card"
 data-name="AK"
 data-category="flower"
-data-search="ak flower classic aromatic botanical"
+data-search="ak flower classic bold aromatic botanical"
 >
 
 <div class="image-wrap">
@@ -428,21 +455,21 @@ data-search="ak flower classic aromatic botanical"
 <h3>AK</h3>
 
 <p class="card-description">
-A classic selection with a bold appearance and a distinctive aromatic profile.
+A classic catalogue selection with a bold visual presentation and a distinctive aromatic character.
 </p>
 
 <div class="details">
 <span class="detail-tag">Classic</span>
+<span class="detail-tag">Bold</span>
 <span class="detail-tag">Aromatic</span>
-<span class="detail-tag">Curated</span>
 </div>
 
 <button
 class="view-button"
 data-title="AK"
 data-category-name="Flower"
-data-description="AK is part of the Velvet Leaf classic collection. It is presented as a carefully selected botanical product with a distinctive appearance and aromatic profile."
-data-tags="Classic,Aromatic,Curated"
+data-description="AK is part of the Velvet Leaf classic collection. Its catalogue profile highlights its bold appearance, detailed presentation and distinctive aromatic character."
+data-tags="Classic,Bold,Aromatic"
 >
 View Details
 </button>
@@ -450,11 +477,13 @@ View Details
 
 </article>
 
+<!-- LEMON KUSH -->
+
 <article
 class="card"
 data-name="Lemon Kush"
 data-category="flower"
-data-search="lemon kush flower citrus aromatic signature"
+data-search="lemon kush flower citrus bright signature aromatic"
 >
 
 <div class="image-wrap">
@@ -467,7 +496,7 @@ data-search="lemon kush flower citrus aromatic signature"
 <h3>Lemon Kush</h3>
 
 <p class="card-description">
-A signature selection recognised for its bright presentation and citrus-inspired aroma.
+A signature catalogue selection recognised for its bright appearance and citrus-inspired aromatic profile.
 </p>
 
 <div class="details">
@@ -480,7 +509,7 @@ A signature selection recognised for its bright presentation and citrus-inspired
 class="view-button"
 data-title="Lemon Kush"
 data-category-name="Flower"
-data-description="Lemon Kush belongs to the Velvet Leaf signature collection. Its catalogue profile highlights a bright appearance and a citrus-inspired aromatic character."
+data-description="Lemon Kush belongs to the Velvet Leaf signature collection. Its catalogue profile focuses on its bright visual appearance and citrus-inspired aromatic character."
 data-tags="Signature,Citrus,Bright"
 >
 View Details
@@ -489,11 +518,13 @@ View Details
 
 </article>
 
+<!-- WHITE RHINO -->
+
 <article
 class="card"
 data-name="White Rhino"
 data-category="flower"
-data-search="white rhino flower earthy premium botanical"
+data-search="white rhino flower earthy premium dense botanical"
 >
 
 <div class="image-wrap">
@@ -506,7 +537,7 @@ data-search="white rhino flower earthy premium botanical"
 <h3>White Rhino</h3>
 
 <p class="card-description">
-A premium catalogue selection with a dense presentation and an earthy aromatic profile.
+A premium catalogue selection with a dense presentation and a rich earthy aromatic character.
 </p>
 
 <div class="details">
@@ -519,7 +550,7 @@ A premium catalogue selection with a dense presentation and an earthy aromatic p
 class="view-button"
 data-title="White Rhino"
 data-category-name="Flower"
-data-description="White Rhino is presented in the Velvet Leaf premium collection. Its catalogue profile focuses on its dense visual presentation and earthy aromatic character."
+data-description="White Rhino is presented in the Velvet Leaf premium collection. Its catalogue profile highlights a dense visual structure and rich earthy aromatic character."
 data-tags="Premium,Earthy,Dense"
 >
 View Details
@@ -528,15 +559,140 @@ View Details
 
 </article>
 
+<!-- MANGO HAZE -->
+
+<article
+class="card"
+data-name="Mango Haze"
+data-category="flower"
+data-search="mango haze flower tropical fruity bright aromatic"
+>
+
+<div class="image-wrap">
+<img src="mango-haze.jpg" alt="Mango Haze product">
+<span class="badge">Tropical</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>Mango Haze</h3>
+
+<p class="card-description">
+A bright catalogue selection with a colourful presentation and a tropical fruit-inspired aromatic profile.
+</p>
+
+<div class="details">
+<span class="detail-tag">Tropical</span>
+<span class="detail-tag">Fruity</span>
+<span class="detail-tag">Bright</span>
+</div>
+
+<button
+class="view-button"
+data-title="Mango Haze"
+data-category-name="Flower"
+data-description="Mango Haze is displayed as a bright botanical catalogue selection. Its profile focuses on its colourful appearance and tropical fruit-inspired aromatic character."
+data-tags="Tropical,Fruity,Bright"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<!-- SUPER BOOF -->
+
+<article
+class="card"
+data-name="Super Boof"
+data-category="flower"
+data-search="super boof flower colourful fruity premium botanical"
+>
+
+<div class="image-wrap">
+<img src="super-boof.jpg" alt="Super Boof product">
+<span class="badge">Featured</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>Super Boof</h3>
+
+<p class="card-description">
+A featured catalogue selection with a colourful presentation and a fruit-inspired aromatic profile.
+</p>
+
+<div class="details">
+<span class="detail-tag">Featured</span>
+<span class="detail-tag">Colourful</span>
+<span class="detail-tag">Fruity</span>
+</div>
+
+<button
+class="view-button"
+data-title="Super Boof"
+data-category-name="Flower"
+data-description="Super Boof is included as a featured Velvet Leaf catalogue selection. Its profile highlights a colourful appearance and fruit-inspired aromatic character."
+data-tags="Featured,Colourful,Fruity"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<!-- 9IB HAMMER -->
+
+<article
+class="card"
+data-name="9Ib Hammer"
+data-category="flower"
+data-search="9ib hammer 9lb hammer flower earthy dense bold botanical"
+>
+
+<div class="image-wrap">
+<img src="9ib-hammer.jpg" alt="9Ib Hammer product">
+<span class="badge">Bold</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>9Ib Hammer</h3>
+
+<p class="card-description">
+A bold catalogue selection with a dense appearance and a deep earthy aromatic character.
+</p>
+
+<div class="details">
+<span class="detail-tag">Bold</span>
+<span class="detail-tag">Dense</span>
+<span class="detail-tag">Earthy</span>
+</div>
+
+<button
+class="view-button"
+data-title="9Ib Hammer"
+data-category-name="Flower"
+data-description="9Ib Hammer is presented as a bold botanical catalogue selection. Its profile focuses on its dense visual structure and deep earthy aromatic character."
+data-tags="Bold,Dense,Earthy"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<!-- COOKIE GUMMIES -->
+
 <article
 class="card"
 data-name="Cookie Gummies"
 data-category="edibles"
-data-search="cookie gummies edible packaged confectionery"
+data-search="cookie gummies gummy edibles packaged confectionery featured"
 >
 
 <div class="image-wrap">
-<img src="cookie-gummy.jpg" alt="Cookie Gummies product">
+<img src="gummy.jpg" alt="Cookie Gummies product">
 <span class="badge">Featured</span>
 </div>
 
@@ -545,21 +701,21 @@ data-search="cookie gummies edible packaged confectionery"
 <h3>Cookie Gummies</h3>
 
 <p class="card-description">
-A neatly packaged confectionery-style product from the Velvet Leaf catalogue.
+A neatly packaged confectionery-style catalogue item with a colourful presentation.
 </p>
 
 <div class="details">
 <span class="detail-tag">Packaged</span>
 <span class="detail-tag">Confectionery</span>
-<span class="detail-tag">Featured</span>
+<span class="detail-tag">Colourful</span>
 </div>
 
 <button
 class="view-button"
 data-title="Cookie Gummies"
 data-category-name="Edibles"
-data-description="Cookie Gummies are presented as a packaged confectionery-style catalogue item. Packaging and product details may vary between available batches."
-data-tags="Packaged,Confectionery,Featured"
+data-description="Cookie Gummies are presented as a packaged confectionery-style catalogue item with a colourful appearance. Packaging and presentation may vary between available batches."
+data-tags="Packaged,Confectionery,Colourful"
 >
 View Details
 </button>
@@ -567,11 +723,13 @@ View Details
 
 </article>
 
+<!-- CARTS -->
+
 <article
 class="card"
 data-name="Cartridge Collection"
 data-category="extracts"
-data-search="cartridge collection extracts packaged modern"
+data-search="cartridge collection carts extracts packaged compact modern"
 >
 
 <div class="image-wrap">
@@ -580,11 +738,11 @@ data-search="cartridge collection extracts packaged modern"
 </div>
 
 <div class="card-content">
-<div class="card-category">Extracts</div>
+<div class="card-category">Carts</div>
 <h3>Cartridge Collection</h3>
 
 <p class="card-description">
-A modern packaged collection presented with a clean and compact product design.
+A modern packaged catalogue collection with a clean and compact product presentation.
 </p>
 
 <div class="details">
@@ -596,48 +754,9 @@ A modern packaged collection presented with a clean and compact product design.
 <button
 class="view-button"
 data-title="Cartridge Collection"
-data-category-name="Extracts"
-data-description="The Cartridge Collection is displayed as a modern packaged catalogue range with a compact presentation. Product appearance and packaging may vary."
+data-category-name="Carts"
+data-description="The Cartridge Collection is displayed as a modern packaged catalogue range with a clean and compact presentation. Product design and packaging may vary."
 data-tags="Compact,Packaged,Modern"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<article
-class="card"
-data-name="Velvet Leaf Accessories"
-data-category="accessories"
-data-search="velvet leaf accessories branded lifestyle collection"
->
-
-<div class="image-wrap">
-<img src="velvet-logo.png" alt="Velvet Leaf Accessories">
-<span class="badge">Brand</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Accessories</div>
-<h3>Velvet Leaf Accessories</h3>
-
-<p class="card-description">
-A selection of branded accessories designed to complement the Velvet Leaf collection.
-</p>
-
-<div class="details">
-<span class="detail-tag">Branded</span>
-<span class="detail-tag">Lifestyle</span>
-<span class="detail-tag">Collection</span>
-</div>
-
-<button
-class="view-button"
-data-title="Velvet Leaf Accessories"
-data-category-name="Accessories"
-data-description="Velvet Leaf Accessories include branded catalogue items designed to complement the visual identity of the collection."
-data-tags="Branded,Lifestyle,Collection"
 >
 View Details
 </button>
@@ -701,7 +820,7 @@ searchData.includes(searchTerm) ||
 name.includes(searchTerm);
 
 if(matchesCategory && matchesSearch){
-card.style.display = "block";
+card.style.display = "flex";
 visibleCount++;
 }else{
 card.style.display = "none";
