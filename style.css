@@ -312,6 +312,10 @@ box-shadow:
 
 }
 
+.telegram-card h2,
+.telegram-card h3{
+    text-align:center;
+}
 
 .verify-card li{
 
