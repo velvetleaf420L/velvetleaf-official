@@ -370,6 +370,9 @@ body{
     height:auto;
 }
 
+.product-grid{
+    grid-template-columns: 1fr !important;
+}
     
 h1{
 
