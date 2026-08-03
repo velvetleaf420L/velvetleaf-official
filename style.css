@@ -494,19 +494,21 @@ header{
 }
 /* PREMIUM BACKGROUND */
 
-body{
-    background-image:
-    linear-gradient(
-        rgba(0,0,0,0.55),
-        rgba(0,0,0,0.75)
-    ),
-    url("background.jpg");
+/* PREMIUM BACKGROUND */
 
-    background-size:cover;
-    background-position:center top;
-    background-attachment:fixed;
-    background-repeat:no-repeat;
+body{
+background-image:
+linear-gradient(
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.85)
+),
+url("background.jpg");
+
+background-size:cover;
+background-position:center top;
+background-repeat:no-repeat;
 }
+
 .product-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
