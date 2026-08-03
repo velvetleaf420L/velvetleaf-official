@@ -632,7 +632,8 @@ h1, h2, h3 {
 }
 
 body {
+  background-color: #000;
   background-image:
-    radial-gradient(circle, rgba(212,175,55,0.15) 1px, transparent 1px);
+    radial-gradient(circle, rgba(212,175,55,0.12) 1px, transparent 1px);
   background-size: 45px 45px;
 }
