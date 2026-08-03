@@ -3,249 +3,779 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Velvet Leaf | Products</title>
+
+<title>Velvet Leaf | Product Catalogue</title>
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
 background:#070707;
-color:white;
+color:#ffffff;
+min-height:100vh;
 }
 
 header{
-padding:30px 20px;
+padding:35px 20px 28px;
 text-align:center;
-background:linear-gradient(180deg,#111,#000);
-border-bottom:1px solid #b88b2d;
+background:linear-gradient(180deg,#151515 0%,#070707 100%);
+border-bottom:1px solid rgba(202,163,75,.45);
 }
 
 header img{
-width:90px;
-margin-bottom:15px;
+width:82px;
+height:82px;
+object-fit:contain;
+margin-bottom:14px;
+filter:drop-shadow(0 0 12px rgba(202,163,75,.25));
 }
 
-h1{
-color:#d9b65f;
+header h1{
 font-size:34px;
-}
-
-.subtitle{
-color:#bbb;
-margin-top:8px;
-}
-
-.category{
-display:flex;
-overflow:auto;
-gap:12px;
-padding:20px;
-}
-
-.category button{
-background:#111;
 color:#d9b65f;
-border:1px solid #b88b2d;
-padding:12px 20px;
-border-radius:30px;
+letter-spacing:1px;
+}
+
+header p{
+margin-top:9px;
+color:#a9a9a9;
 font-size:15px;
+}
+
+.toolbar{
+max-width:1200px;
+margin:auto;
+padding:24px 20px 10px;
+}
+
+.search-box{
+display:flex;
+justify-content:center;
+}
+
+.search-box input{
+width:100%;
+max-width:620px;
+padding:15px 20px;
+background:#111111;
+border:1px solid #9c7832;
+border-radius:40px;
+color:#ffffff;
+font-size:16px;
+outline:none;
+transition:.25s;
+}
+
+.search-box input::placeholder{
+color:#777777;
+}
+
+.search-box input:focus{
+border-color:#e0bb5f;
+box-shadow:0 0 18px rgba(197,154,61,.22);
+}
+
+.categories{
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding:20px 0 10px;
+scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+display:none;
+}
+
+.category-btn{
+padding:11px 18px;
+background:#111111;
+border:1px solid #4a4a4a;
+border-radius:30px;
+color:#c9c9c9;
+font-size:14px;
 white-space:nowrap;
+cursor:pointer;
+transition:.25s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+background:#c59a3d;
+border-color:#c59a3d;
+color:#080808;
+}
+
+.section-title{
+max-width:1200px;
+margin:18px auto 0;
+padding:0 20px;
+}
+
+.section-title h2{
+font-size:24px;
+color:#f0d486;
+}
+
+.section-title p{
+margin-top:6px;
+color:#888888;
+font-size:14px;
 }
 
 .products{
+max-width:1200px;
+margin:auto;
+padding:24px 20px 50px;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:25px;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
 }
 
 .card{
-background:#111;
-border:1px solid #222;
+background:linear-gradient(145deg,#151515,#0d0d0d);
+border:1px solid #292929;
 border-radius:20px;
 overflow:hidden;
-transition:.3s;
+transition:.28s;
 }
 
 .card:hover{
 transform:translateY(-5px);
-border-color:#caa34b;
+border-color:#9c7832;
+box-shadow:0 14px 35px rgba(0,0,0,.4);
+}
+
+.image-wrap{
+position:relative;
+background:#101010;
+overflow:hidden;
 }
 
 .card img{
 width:100%;
-height:250px;
+height:260px;
+display:block;
 object-fit:cover;
+transition:.35s;
 }
 
-.info{
-padding:18px;
+.card:hover img{
+transform:scale(1.035);
 }
 
-.info h2{
-color:#d9b65f;
-margin-bottom:10px;
-}
-
-.type{
-color:#ccc;
-margin-bottom:10px;
-}
-
-.effect{
-color:#999;
-margin-bottom:15px;
-}
-
-.price{
-font-size:20px;
-color:#fff;
+.badge{
+position:absolute;
+top:14px;
+left:14px;
+padding:7px 11px;
+border-radius:20px;
+background:rgba(5,5,5,.82);
+border:1px solid rgba(217,182,95,.6);
+color:#e5c76f;
+font-size:12px;
 font-weight:bold;
+backdrop-filter:blur(8px);
+}
+
+.card-content{
+padding:19px;
+}
+
+.card-category{
+font-size:12px;
+color:#a8863e;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:7px;
+}
+
+.card h3{
+font-size:22px;
+color:#f0d486;
+margin-bottom:10px;
+}
+
+.card-description{
+font-size:14px;
+line-height:1.65;
+color:#aaaaaa;
+min-height:68px;
+}
+
+.details{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:16px;
+}
+
+.detail-tag{
+background:#1b1b1b;
+border:1px solid #303030;
+border-radius:20px;
+padding:7px 11px;
+color:#c6c6c6;
+font-size:12px;
+}
+
+.view-button{
+width:100%;
+margin-top:18px;
+padding:12px;
+border-radius:10px;
+border:1px solid #9c7832;
+background:transparent;
+color:#d9b65f;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+}
+
+.view-button:hover{
+background:#c59a3d;
+color:#080808;
+}
+
+.empty-message{
+display:none;
+max-width:1200px;
+margin:20px auto 60px;
+padding:30px 20px;
+text-align:center;
+color:#888888;
+}
+
+footer{
+padding:28px 20px;
+text-align:center;
+border-top:1px solid #222222;
+color:#777777;
+font-size:13px;
+}
+
+.modal{
+display:none;
+position:fixed;
+inset:0;
+z-index:1000;
+background:rgba(0,0,0,.82);
+padding:20px;
+align-items:center;
+justify-content:center;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modal-box{
+width:100%;
+max-width:620px;
+max-height:90vh;
+overflow-y:auto;
+background:#111111;
+border:1px solid #8e6d2f;
+border-radius:22px;
+padding:25px;
+position:relative;
+box-shadow:0 25px 80px rgba(0,0,0,.7);
+}
+
+.close-modal{
+position:absolute;
+top:15px;
+right:17px;
+width:38px;
+height:38px;
+border-radius:50%;
+border:1px solid #444444;
+background:#191919;
+color:#ffffff;
+font-size:20px;
+cursor:pointer;
+}
+
+.modal-box h2{
+color:#e3c46b;
+font-size:28px;
+padding-right:45px;
+margin-bottom:8px;
+}
+
+.modal-category{
+color:#a8863e;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:1px;
 margin-bottom:18px;
 }
 
-.telegram{
-display:block;
-text-align:center;
-background:#c59a3d;
-color:black;
-text-decoration:none;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
+.modal-description{
+color:#b8b8b8;
+font-size:15px;
+line-height:1.7;
 }
 
-.telegram:hover{
-background:#e7bc5d;
+.modal-tags{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:20px;
+}
+
+@media(max-width:900px){
+.products{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:600px){
+header{
+padding-top:28px;
+}
+
+header h1{
+font-size:29px;
+}
+
+.products{
+grid-template-columns:1fr;
+gap:18px;
+padding-left:15px;
+padding-right:15px;
+}
+
+.toolbar{
+padding-left:15px;
+padding-right:15px;
+}
+
+.section-title{
+padding-left:15px;
+padding-right:15px;
+}
+
+.card img{
+height:240px;
+}
+
+.card-description{
+min-height:auto;
+}
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
-
-<img src="velvet-logo.png">
-
+<img src="velvet-logo.png" alt="Velvet Leaf logo">
 <h1>Velvet Leaf</h1>
-
-<div class="subtitle">
-Premium Product Menu
-</div>
-
+<p>Curated Product Catalogue</p>
 </header>
 
+<main>
+
+<section class="toolbar">
+
 <div class="search-box">
-    <input type="text" id="searchInput" placeholder="🔍 Search products...">
-  
-</div>
-  
-<div class="category">
-
-<button>Flower</button>
-
-<button>Edibles</button>
-
-<button>Carts</button>
-
-<button>Pre-rolls</button>
-
-<button>Deals</button>
-
+<input
+type="text"
+id="searchInput"
+placeholder="Search products or categories..."
+aria-label="Search products"
+>
 </div>
 
-<div class="products">
-
-<div class="card">
-
-<img src="ak.jpg">
-
-<div class="info">
-
-<h2>AK</h2>
-
-<div class="type">
-Sativa • THC 18-22%
+<div class="categories">
+<button class="category-btn active" data-category="all">All</button>
+<button class="category-btn" data-category="flower">Flower</button>
+<button class="category-btn" data-category="edibles">Edibles</button>
+<button class="category-btn" data-category="extracts">Extracts</button>
+<button class="category-btn" data-category="accessories">Accessories</button>
 </div>
 
-<div class="effect">
-Energetic • Focused • Daytime
+</section>
+
+<section class="section-title">
+<h2>Our Collection</h2>
+<p>Browse the current Velvet Leaf catalogue.</p>
+</section>
+
+<section class="products" id="productGrid">
+
+<article
+class="card"
+data-name="AK"
+data-category="flower"
+data-search="ak flower classic aromatic botanical"
+>
+
+<div class="image-wrap">
+<img src="ak.jpg" alt="AK product">
+<span class="badge">Classic</span>
 </div>
 
-<div class="price">
-Q $100 • H $190 • OZ $350
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>AK</h3>
+
+<p class="card-description">
+A classic selection with a bold appearance and a distinctive aromatic profile.
+</p>
+
+<div class="details">
+<span class="detail-tag">Classic</span>
+<span class="detail-tag">Aromatic</span>
+<span class="detail-tag">Curated</span>
 </div>
 
-<a class="telegram" href="https://t.me/VelvetLeaf420L">
-Contact on Telegram
-</a>
+<button
+class="view-button"
+data-title="AK"
+data-category-name="Flower"
+data-description="AK is part of the Velvet Leaf classic collection. It is presented as a carefully selected botanical product with a distinctive appearance and aromatic profile."
+data-tags="Classic,Aromatic,Curated"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<article
+class="card"
+data-name="Lemon Kush"
+data-category="flower"
+data-search="lemon kush flower citrus aromatic signature"
+>
+
+<div class="image-wrap">
+<img src="lemon-kush.jpg" alt="Lemon Kush product">
+<span class="badge">Signature</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>Lemon Kush</h3>
+
+<p class="card-description">
+A signature selection recognised for its bright presentation and citrus-inspired aroma.
+</p>
+
+<div class="details">
+<span class="detail-tag">Signature</span>
+<span class="detail-tag">Citrus</span>
+<span class="detail-tag">Bright</span>
+</div>
+
+<button
+class="view-button"
+data-title="Lemon Kush"
+data-category-name="Flower"
+data-description="Lemon Kush belongs to the Velvet Leaf signature collection. Its catalogue profile highlights a bright appearance and a citrus-inspired aromatic character."
+data-tags="Signature,Citrus,Bright"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<article
+class="card"
+data-name="White Rhino"
+data-category="flower"
+data-search="white rhino flower earthy premium botanical"
+>
+
+<div class="image-wrap">
+<img src="white-rhino.jpg" alt="White Rhino product">
+<span class="badge">Premium</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Flower</div>
+<h3>White Rhino</h3>
+
+<p class="card-description">
+A premium catalogue selection with a dense presentation and an earthy aromatic profile.
+</p>
+
+<div class="details">
+<span class="detail-tag">Premium</span>
+<span class="detail-tag">Earthy</span>
+<span class="detail-tag">Dense</span>
+</div>
+
+<button
+class="view-button"
+data-title="White Rhino"
+data-category-name="Flower"
+data-description="White Rhino is presented in the Velvet Leaf premium collection. Its catalogue profile focuses on its dense visual presentation and earthy aromatic character."
+data-tags="Premium,Earthy,Dense"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<article
+class="card"
+data-name="Cookie Gummies"
+data-category="edibles"
+data-search="cookie gummies edible packaged confectionery"
+>
+
+<div class="image-wrap">
+<img src="cookie-gummy.jpg" alt="Cookie Gummies product">
+<span class="badge">Featured</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Edibles</div>
+<h3>Cookie Gummies</h3>
+
+<p class="card-description">
+A neatly packaged confectionery-style product from the Velvet Leaf catalogue.
+</p>
+
+<div class="details">
+<span class="detail-tag">Packaged</span>
+<span class="detail-tag">Confectionery</span>
+<span class="detail-tag">Featured</span>
+</div>
+
+<button
+class="view-button"
+data-title="Cookie Gummies"
+data-category-name="Edibles"
+data-description="Cookie Gummies are presented as a packaged confectionery-style catalogue item. Packaging and product details may vary between available batches."
+data-tags="Packaged,Confectionery,Featured"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<article
+class="card"
+data-name="Cartridge Collection"
+data-category="extracts"
+data-search="cartridge collection extracts packaged modern"
+>
+
+<div class="image-wrap">
+<img src="thc-carts.jpg" alt="Cartridge Collection">
+<span class="badge">Collection</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Extracts</div>
+<h3>Cartridge Collection</h3>
+
+<p class="card-description">
+A modern packaged collection presented with a clean and compact product design.
+</p>
+
+<div class="details">
+<span class="detail-tag">Compact</span>
+<span class="detail-tag">Packaged</span>
+<span class="detail-tag">Modern</span>
+</div>
+
+<button
+class="view-button"
+data-title="Cartridge Collection"
+data-category-name="Extracts"
+data-description="The Cartridge Collection is displayed as a modern packaged catalogue range with a compact presentation. Product appearance and packaging may vary."
+data-tags="Compact,Packaged,Modern"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+<article
+class="card"
+data-name="Velvet Leaf Accessories"
+data-category="accessories"
+data-search="velvet leaf accessories branded lifestyle collection"
+>
+
+<div class="image-wrap">
+<img src="velvet-logo.png" alt="Velvet Leaf Accessories">
+<span class="badge">Brand</span>
+</div>
+
+<div class="card-content">
+<div class="card-category">Accessories</div>
+<h3>Velvet Leaf Accessories</h3>
+
+<p class="card-description">
+A selection of branded accessories designed to complement the Velvet Leaf collection.
+</p>
+
+<div class="details">
+<span class="detail-tag">Branded</span>
+<span class="detail-tag">Lifestyle</span>
+<span class="detail-tag">Collection</span>
+</div>
+
+<button
+class="view-button"
+data-title="Velvet Leaf Accessories"
+data-category-name="Accessories"
+data-description="Velvet Leaf Accessories include branded catalogue items designed to complement the visual identity of the collection."
+data-tags="Branded,Lifestyle,Collection"
+>
+View Details
+</button>
+</div>
+
+</article>
+
+</section>
+
+<div class="empty-message" id="emptyMessage">
+No matching products found.
+</div>
+
+</main>
+
+<footer>
+© 2026 Velvet Leaf. Product information is provided for general catalogue purposes only.
+</footer>
+
+<div class="modal" id="productModal">
+
+<div class="modal-box">
+
+<button class="close-modal" id="closeModal" aria-label="Close">×</button>
+
+<h2 id="modalTitle"></h2>
+
+<div class="modal-category" id="modalCategory"></div>
+
+<p class="modal-description" id="modalDescription"></p>
+
+<div class="modal-tags" id="modalTags"></div>
 
 </div>
 
 </div>
 
-<div class="card">
+<script>
+const searchInput = document.getElementById("searchInput");
+const categoryButtons = document.querySelectorAll(".category-btn");
+const cards = document.querySelectorAll(".card");
+const emptyMessage = document.getElementById("emptyMessage");
 
-<img src="lemon-kush.jpg">
+let selectedCategory = "all";
 
-<div class="info">
+function filterProducts(){
+const searchTerm = searchInput.value.toLowerCase().trim();
+let visibleCount = 0;
 
-<h2>Lemon Kush</h2>
+cards.forEach(card => {
+const category = card.dataset.category;
+const searchData = card.dataset.search.toLowerCase();
+const name = card.dataset.name.toLowerCase();
 
-<div class="type">
-Sativa • THC 20-24%
-</div>
+const matchesCategory =
+selectedCategory === "all" ||
+category === selectedCategory;
 
-<div class="effect">
-Clear Head • Uplifting • Functional
-</div>
+const matchesSearch =
+searchData.includes(searchTerm) ||
+name.includes(searchTerm);
 
-<div class="price">
-Q $110 • H $210 • OZ $370
-</div>
+if(matchesCategory && matchesSearch){
+card.style.display = "block";
+visibleCount++;
+}else{
+card.style.display = "none";
+}
+});
 
-<a class="telegram" href="https://t.me/VelvetLeaf420L">
-Contact on Telegram
-</a>
+emptyMessage.style.display =
+visibleCount === 0 ? "block" : "none";
+}
 
-</div>
+searchInput.addEventListener("input", filterProducts);
 
-</div>
+categoryButtons.forEach(button => {
+button.addEventListener("click", () => {
 
-<div class="card">
+categoryButtons.forEach(item => {
+item.classList.remove("active");
+});
 
-<img src="white-rhino.jpg">
+button.classList.add("active");
+selectedCategory = button.dataset.category;
 
-<div class="info">
+filterProducts();
+});
+});
 
-<h2>White Rhino</h2>
+const modal = document.getElementById("productModal");
+const closeModal = document.getElementById("closeModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalCategory = document.getElementById("modalCategory");
+const modalDescription = document.getElementById("modalDescription");
+const modalTags = document.getElementById("modalTags");
+const detailButtons = document.querySelectorAll(".view-button");
 
-<div class="type">
-Indica • THC 18-22%
-</div>
+detailButtons.forEach(button => {
+button.addEventListener("click", () => {
 
-<div class="effect">
-Sleepy • Relaxed • Heavy Body
-</div>
+modalTitle.textContent = button.dataset.title;
+modalCategory.textContent = button.dataset.categoryName;
+modalDescription.textContent = button.dataset.description;
 
-<div class="price">
-Q $120 • H $230 • OZ $390
-</div>
+modalTags.innerHTML = "";
 
-<a class="telegram" href="https://t.me/VelvetLeaf420L">
-Contact on Telegram
-</a>
+button.dataset.tags.split(",").forEach(tag => {
+const span = document.createElement("span");
+span.className = "detail-tag";
+span.textContent = tag.trim();
+modalTags.appendChild(span);
+});
 
-</div>
+modal.classList.add("show");
+document.body.style.overflow = "hidden";
+});
+});
 
-</div>
+function closeProductModal(){
+modal.classList.remove("show");
+document.body.style.overflow = "";
+}
 
-</div>
+closeModal.addEventListener("click", closeProductModal);
+
+modal.addEventListener("click", event => {
+if(event.target === modal){
+closeProductModal();
+}
+});
+
+document.addEventListener("keydown", event => {
+if(event.key === "Escape"){
+closeProductModal();
+}
+});
+</script>
 
 </body>
 </html>
