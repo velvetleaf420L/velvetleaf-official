@@ -606,3 +606,18 @@ padding:0 10px;
 html {
   scroll-behavior: smooth;
 }
+
+.menu-section {
+  border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.menu-item {
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
