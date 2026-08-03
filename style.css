@@ -649,3 +649,7 @@ body {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(212,175,55,0.35);
 }
+
+body {
+  background: red !important;
+}
