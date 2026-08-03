@@ -574,3 +574,17 @@ background:#d4af37;
 color:#000;
 box-shadow:0 0 15px #d4af37;
 }
+
+.menu-image{
+display:flex;
+justify-content:center;
+margin:30px auto;
+}
+
+.menu-image img{
+width:90%;
+max-width:600px;
+border-radius:16px;
+border:1px solid #d4af37;
+box-shadow:0 0 20px rgba(212,175,55,0.3);
+}
