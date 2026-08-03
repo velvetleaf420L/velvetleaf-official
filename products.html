@@ -3,898 +3,441 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Velvet Leaf | Product Catalogue</title>
-
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+:root{
+  --bg:#070707;
+  --panel:#111;
+  --panel2:#171717;
+  --gold:#d9b65f;
+  --gold2:#b88b2d;
+  --text:#f4f4f4;
+  --muted:#a5a5a5;
+  --border:#2b2b2b;
 }
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-background:#070707;
-color:#ffffff;
-min-height:100vh;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 20% 0%,rgba(217,182,95,.08),transparent 30%),
+    linear-gradient(180deg,#0a0a0a 0%,#070707 55%,#050505 100%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
 }
-
-header{
-padding:34px 20px 28px;
-text-align:center;
-background:linear-gradient(180deg,#151515 0%,#070707 100%);
-border-bottom:1px solid rgba(202,163,75,.45);
+button,input{font:inherit}
+.hero{
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+  padding:46px 20px 34px;
+  border-bottom:1px solid rgba(217,182,95,.3);
 }
-
-header img{
-width:82px;
-height:82px;
-object-fit:contain;
-margin-bottom:13px;
-filter:drop-shadow(0 0 13px rgba(202,163,75,.3));
+.hero:before{
+  content:"";
+  position:absolute;
+  inset:-120px 0 auto;
+  height:250px;
+  background:radial-gradient(circle,rgba(217,182,95,.12),transparent 65%);
+  pointer-events:none;
 }
-
-header h1{
-font-size:34px;
-color:#d9b65f;
-letter-spacing:1px;
+.logo{
+  width:86px;height:86px;object-fit:contain;
+  filter:drop-shadow(0 0 16px rgba(217,182,95,.28));
+  margin-bottom:14px;
 }
-
-header p{
-margin-top:8px;
-color:#a5a5a5;
-font-size:15px;
+.hero h1{
+  color:var(--gold);
+  font-size:clamp(30px,5vw,44px);
+  letter-spacing:1.5px;
 }
-
-.toolbar{
-width:100%;
-max-width:1400px;
-margin:0 auto;
-padding:25px 22px 8px;
+.hero p{color:var(--muted);margin-top:9px;font-size:15px}
+.container{width:min(1400px,100%);margin:auto;padding:0 20px}
+.toolbar{padding-top:26px}
+.search{
+  display:flex;
+  justify-content:center;
 }
-
-.search-box{
-width:100%;
-display:flex;
-justify-content:center;
+.search input{
+  width:min(850px,100%);
+  padding:15px 20px;
+  color:#fff;
+  background:rgba(17,17,17,.95);
+  border:1px solid var(--gold2);
+  border-radius:999px;
+  outline:none;
+  transition:.2s;
 }
-
-.search-box input{
-width:100%;
-max-width:850px;
-padding:15px 22px;
-background:#111111;
-border:1px solid #9c7832;
-border-radius:40px;
-color:#ffffff;
-font-size:16px;
-outline:none;
-transition:.25s;
+.search input:focus{
+  border-color:#f1d47b;
+  box-shadow:0 0 0 4px rgba(217,182,95,.08),0 0 22px rgba(217,182,95,.13);
 }
-
-.search-box input::placeholder{
-color:#777777;
+.filters{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  overflow-x:auto;
+  padding:18px 0 4px;
+  scrollbar-width:none;
 }
-
-.search-box input:focus{
-border-color:#e0bb5f;
-box-shadow:0 0 18px rgba(197,154,61,.25);
+.filters::-webkit-scrollbar{display:none}
+.filter{
+  flex:0 0 auto;
+  color:#cfcfcf;
+  background:#111;
+  border:1px solid #444;
+  border-radius:999px;
+  padding:10px 18px;
+  cursor:pointer;
+  transition:.2s;
 }
-
-.categories{
-display:flex;
-justify-content:center;
-gap:10px;
-overflow-x:auto;
-padding:20px 0 12px;
-scrollbar-width:none;
+.filter:hover,.filter.active{
+  color:#070707;
+  background:var(--gold);
+  border-color:var(--gold);
 }
-
-.categories::-webkit-scrollbar{
-display:none;
+.heading{padding-top:30px}
+.heading h2{color:#f0d486;font-size:26px}
+.heading p{color:#858585;margin-top:7px;font-size:14px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:24px;
+  padding:24px 0 54px;
 }
-
-.category-btn{
-padding:11px 20px;
-background:#111111;
-border:1px solid #444444;
-border-radius:30px;
-color:#c9c9c9;
-font-size:14px;
-white-space:nowrap;
-cursor:pointer;
-transition:.25s;
-}
-
-.category-btn:hover,
-.category-btn.active{
-background:#c59a3d;
-border-color:#c59a3d;
-color:#080808;
-}
-
-.section-title{
-width:100%;
-max-width:1400px;
-margin:17px auto 0;
-padding:0 22px;
-}
-
-.section-title h2{
-font-size:25px;
-color:#f0d486;
-}
-
-.section-title p{
-margin-top:6px;
-color:#888888;
-font-size:14px;
-}
-
-.products{
-width:100%;
-max-width:1400px;
-margin:0 auto;
-padding:24px 22px 55px;
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:24px;
-align-items:stretch;
-}
-
 .card{
-display:flex;
-flex-direction:column;
-background:linear-gradient(145deg,#151515,#0d0d0d);
-border:1px solid #292929;
-border-radius:20px;
-overflow:hidden;
-transition:.28s;
-min-width:0;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:21px;
+  background:linear-gradient(145deg,#161616,#0e0e0e);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+  transition:.25s;
 }
-
 .card:hover{
-transform:translateY(-5px);
-border-color:#9c7832;
-box-shadow:0 14px 35px rgba(0,0,0,.45);
+  transform:translateY(-5px);
+  border-color:#8f6e2f;
+  box-shadow:0 18px 42px rgba(0,0,0,.46);
 }
-
-.image-wrap{
-position:relative;
-height:270px;
-background:#101010;
-overflow:hidden;
-}
-
-.card img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
-transition:.35s;
-}
-
-.card:hover img{
-transform:scale(1.035);
-}
-
+.media{position:relative;height:275px;overflow:hidden;background:#101010}
+.media img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s}
+.card:hover .media img{transform:scale(1.035)}
 .badge{
-position:absolute;
-top:14px;
-left:14px;
-z-index:2;
-padding:7px 11px;
-border-radius:20px;
-background:rgba(5,5,5,.84);
-border:1px solid rgba(217,182,95,.65);
-color:#e5c76f;
-font-size:12px;
-font-weight:bold;
-backdrop-filter:blur(8px);
+  position:absolute;top:14px;left:14px;
+  padding:7px 11px;
+  border-radius:999px;
+  color:#efd278;
+  background:rgba(5,5,5,.82);
+  border:1px solid rgba(217,182,95,.65);
+  font-size:12px;font-weight:700;
+  backdrop-filter:blur(8px);
 }
-
-.card-content{
-display:flex;
-flex-direction:column;
-flex:1;
-padding:19px;
+.content{display:flex;flex-direction:column;flex:1;padding:19px}
+.category{
+  color:#a8863e;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:7px;
 }
-
-.card-category{
-font-size:12px;
-color:#a8863e;
-text-transform:uppercase;
-letter-spacing:1px;
-margin-bottom:7px;
+.card h3{color:#f0d486;font-size:22px;margin-bottom:10px}
+.description{color:#aaa;font-size:14px;line-height:1.65;min-height:70px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px}
+.tag{
+  color:#c7c7c7;background:#1b1b1b;border:1px solid #303030;
+  border-radius:999px;padding:7px 11px;font-size:12px;
 }
-
-.card h3{
-font-size:22px;
-color:#f0d486;
-margin-bottom:10px;
+.view{
+  margin-top:auto;width:100%;
+  color:var(--gold);
+  background:transparent;
+  border:1px solid #8f6e2f;
+  border-radius:11px;
+  padding:13px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
 }
-
-.card-description{
-font-size:14px;
-line-height:1.65;
-color:#aaaaaa;
-min-height:70px;
-}
-
-.details{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:16px;
-}
-
-.detail-tag{
-background:#1b1b1b;
-border:1px solid #303030;
-border-radius:20px;
-padding:7px 11px;
-color:#c6c6c6;
-font-size:12px;
-}
-
-.view-button{
-width:100%;
-margin-top:auto;
-padding:13px;
-border-radius:10px;
-border:1px solid #9c7832;
-background:transparent;
-color:#d9b65f;
-font-size:14px;
-font-weight:bold;
-cursor:pointer;
-transition:.25s;
-}
-
-.view-button:hover{
-background:#c59a3d;
-color:#080808;
-}
-
-.empty-message{
-display:none;
-max-width:1400px;
-margin:20px auto 60px;
-padding:35px 20px;
-text-align:center;
-color:#888888;
-}
-
+.view:hover{background:var(--gold);color:#080808}
+.empty{display:none;text-align:center;color:#888;padding:20px 0 60px}
 footer{
-padding:28px 20px;
-text-align:center;
-border-top:1px solid #222222;
-color:#777777;
-font-size:13px;
+  text-align:center;color:#747474;font-size:13px;
+  border-top:1px solid #222;padding:28px 18px;
 }
-
 .modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:1000;
-background:rgba(0,0,0,.84);
-padding:20px;
-align-items:center;
-justify-content:center;
+  display:none;position:fixed;inset:0;z-index:1000;
+  align-items:center;justify-content:center;
+  background:rgba(0,0,0,.84);padding:18px;
 }
-
-.modal.show{
-display:flex;
+.modal.show{display:flex}
+.modal-card{
+  position:relative;
+  width:min(880px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:22px;
+  border:1px solid #86672d;
+  background:#101010;
+  box-shadow:0 30px 90px rgba(0,0,0,.75);
 }
-
-.modal-box{
-width:100%;
-max-width:650px;
-max-height:90vh;
-overflow-y:auto;
-background:#111111;
-border:1px solid #8e6d2f;
-border-radius:22px;
-padding:26px;
-position:relative;
-box-shadow:0 25px 80px rgba(0,0,0,.75);
+.modal-layout{display:grid;grid-template-columns:1fr 1fr}
+.modal-image{min-height:420px;background:#0b0b0b}
+.modal-image img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-copy{padding:30px}
+.close{
+  position:absolute;top:14px;right:14px;z-index:2;
+  width:40px;height:40px;border-radius:50%;
+  color:#fff;background:#171717;border:1px solid #444;
+  font-size:21px;cursor:pointer;
 }
-
-.close-modal{
-position:absolute;
-top:15px;
-right:17px;
-width:38px;
-height:38px;
-border-radius:50%;
-border:1px solid #444444;
-background:#191919;
-color:#ffffff;
-font-size:20px;
-cursor:pointer;
-}
-
-.modal-box h2{
-color:#e3c46b;
-font-size:28px;
-padding-right:45px;
-margin-bottom:8px;
-}
-
-.modal-category{
-color:#a8863e;
-font-size:13px;
-text-transform:uppercase;
-letter-spacing:1px;
-margin-bottom:18px;
-}
-
-.modal-description{
-color:#b8b8b8;
-font-size:15px;
-line-height:1.75;
-}
-
-.modal-tags{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:20px;
-}
-
+.modal-copy h2{color:#e6c86f;font-size:31px;padding-right:42px}
+.modal-category{color:#a8863e;margin-top:7px;text-transform:uppercase;font-size:13px;letter-spacing:1px}
+.modal-description{color:#b8b8b8;line-height:1.75;margin-top:20px}
+.modal-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 @media(max-width:1000px){
-.products{
-grid-template-columns:repeat(2,minmax(0,1fr));
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-}
-
-@media(max-width:650px){
-header{
-padding-top:28px;
-}
-
-header h1{
-font-size:29px;
-}
-
-.toolbar{
-padding-left:15px;
-padding-right:15px;
-}
-
-.categories{
-justify-content:flex-start;
-}
-
-.section-title{
-padding-left:15px;
-padding-right:15px;
-}
-
-.products{
-grid-template-columns:1fr;
-gap:18px;
-padding-left:15px;
-padding-right:15px;
-}
-
-.image-wrap{
-height:250px;
-}
-
-.card-description{
-min-height:auto;
-}
-
-.modal{
-padding:12px;
-}
-
-.modal-box{
-padding:23px 19px;
-}
+@media(max-width:700px){
+  .container{padding:0 15px}
+  .hero{padding-top:34px}
+  .filters{justify-content:flex-start}
+  .grid{grid-template-columns:1fr;gap:18px}
+  .media{height:250px}
+  .description{min-height:auto}
+  .modal-layout{grid-template-columns:1fr}
+  .modal-image{min-height:260px;height:260px}
+  .modal-copy{padding:23px 19px}
+  .modal-copy h2{font-size:27px}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-<img src="velvet-logo.png" alt="Velvet Leaf logo">
-<h1>Velvet Leaf</h1>
-<p>Curated Product Catalogue</p>
+<header class="hero">
+  <img class="logo" src="velvet-logo.png" alt="Velvet Leaf logo">
+  <h1>Velvet Leaf</h1>
+  <p>Curated Product Catalogue</p>
 </header>
 
-<main>
-
-<section class="toolbar">
-
-<div class="search-box">
-<input
-type="text"
-id="searchInput"
-placeholder="Search products or categories..."
-aria-label="Search products"
->
-</div>
-
-<div class="categories">
-<button class="category-btn active" data-category="all">All</button>
-<button class="category-btn" data-category="flower">Flower</button>
-<button class="category-btn" data-category="edibles">Edibles</button>
-<button class="category-btn" data-category="extracts">Carts</button>
-</div>
-
-</section>
-
-<section class="section-title">
-<h2>Our Collection</h2>
-<p>Browse the current Velvet Leaf catalogue.</p>
-</section>
-
-<section class="products" id="productGrid">
-
-<!-- AK -->
-
-<article
-class="card"
-data-name="AK"
-data-category="flower"
-data-search="ak flower classic bold aromatic botanical"
->
-
-<div class="image-wrap">
-<img src="ak.jpg" alt="AK product">
-<span class="badge">Classic</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>AK</h3>
-
-<p class="card-description">
-A classic catalogue selection with a bold visual presentation and a distinctive aromatic character.
-</p>
-
-<div class="details">
-<span class="detail-tag">Classic</span>
-<span class="detail-tag">Bold</span>
-<span class="detail-tag">Aromatic</span>
-</div>
-
-<button
-class="view-button"
-data-title="AK"
-data-category-name="Flower"
-data-description="AK is part of the Velvet Leaf classic collection. Its catalogue profile highlights its bold appearance, detailed presentation and distinctive aromatic character."
-data-tags="Classic,Bold,Aromatic"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- LEMON KUSH -->
-
-<article
-class="card"
-data-name="Lemon Kush"
-data-category="flower"
-data-search="lemon kush flower citrus bright signature aromatic"
->
-
-<div class="image-wrap">
-<img src="lemon-kush.jpg" alt="Lemon Kush product">
-<span class="badge">Signature</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>Lemon Kush</h3>
-
-<p class="card-description">
-A signature catalogue selection recognised for its bright appearance and citrus-inspired aromatic profile.
-</p>
-
-<div class="details">
-<span class="detail-tag">Signature</span>
-<span class="detail-tag">Citrus</span>
-<span class="detail-tag">Bright</span>
-</div>
-
-<button
-class="view-button"
-data-title="Lemon Kush"
-data-category-name="Flower"
-data-description="Lemon Kush belongs to the Velvet Leaf signature collection. Its catalogue profile focuses on its bright visual appearance and citrus-inspired aromatic character."
-data-tags="Signature,Citrus,Bright"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- WHITE RHINO -->
-
-<article
-class="card"
-data-name="White Rhino"
-data-category="flower"
-data-search="white rhino flower earthy premium dense botanical"
->
-
-<div class="image-wrap">
-<img src="white-rhino.jpg" alt="White Rhino product">
-<span class="badge">Premium</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>White Rhino</h3>
-
-<p class="card-description">
-A premium catalogue selection with a dense presentation and a rich earthy aromatic character.
-</p>
-
-<div class="details">
-<span class="detail-tag">Premium</span>
-<span class="detail-tag">Earthy</span>
-<span class="detail-tag">Dense</span>
-</div>
-
-<button
-class="view-button"
-data-title="White Rhino"
-data-category-name="Flower"
-data-description="White Rhino is presented in the Velvet Leaf premium collection. Its catalogue profile highlights a dense visual structure and rich earthy aromatic character."
-data-tags="Premium,Earthy,Dense"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- MANGO HAZE -->
-
-<article
-class="card"
-data-name="Mango Haze"
-data-category="flower"
-data-search="mango haze flower tropical fruity bright aromatic"
->
-
-<div class="image-wrap">
-<img src="mango-haze.jpg" alt="Mango Haze product">
-<span class="badge">Tropical</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>Mango Haze</h3>
-
-<p class="card-description">
-A bright catalogue selection with a colourful presentation and a tropical fruit-inspired aromatic profile.
-</p>
-
-<div class="details">
-<span class="detail-tag">Tropical</span>
-<span class="detail-tag">Fruity</span>
-<span class="detail-tag">Bright</span>
-</div>
-
-<button
-class="view-button"
-data-title="Mango Haze"
-data-category-name="Flower"
-data-description="Mango Haze is displayed as a bright botanical catalogue selection. Its profile focuses on its colourful appearance and tropical fruit-inspired aromatic character."
-data-tags="Tropical,Fruity,Bright"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- SUPER BOOF -->
-
-<article
-class="card"
-data-name="Super Boof"
-data-category="flower"
-data-search="super boof flower colourful fruity premium botanical"
->
-
-<div class="image-wrap">
-<img src="super-boof.jpg" alt="Super Boof product">
-<span class="badge">Featured</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>Super Boof</h3>
-
-<p class="card-description">
-A featured catalogue selection with a colourful presentation and a fruit-inspired aromatic profile.
-</p>
-
-<div class="details">
-<span class="detail-tag">Featured</span>
-<span class="detail-tag">Colourful</span>
-<span class="detail-tag">Fruity</span>
-</div>
-
-<button
-class="view-button"
-data-title="Super Boof"
-data-category-name="Flower"
-data-description="Super Boof is included as a featured Velvet Leaf catalogue selection. Its profile highlights a colourful appearance and fruit-inspired aromatic character."
-data-tags="Featured,Colourful,Fruity"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- 9IB HAMMER -->
-
-<article
-class="card"
-data-name="9Ib Hammer"
-data-category="flower"
-data-search="9ib hammer 9lb hammer flower earthy dense bold botanical"
->
-
-<div class="image-wrap">
-<img src="9ib-hammer.jpg" alt="9Ib Hammer product">
-<span class="badge">Bold</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Flower</div>
-<h3>9Ib Hammer</h3>
-
-<p class="card-description">
-A bold catalogue selection with a dense appearance and a deep earthy aromatic character.
-</p>
-
-<div class="details">
-<span class="detail-tag">Bold</span>
-<span class="detail-tag">Dense</span>
-<span class="detail-tag">Earthy</span>
-</div>
-
-<button
-class="view-button"
-data-title="9Ib Hammer"
-data-category-name="Flower"
-data-description="9Ib Hammer is presented as a bold botanical catalogue selection. Its profile focuses on its dense visual structure and deep earthy aromatic character."
-data-tags="Bold,Dense,Earthy"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- COOKIE GUMMIES -->
-
-<article
-class="card"
-data-name="Cookie Gummies"
-data-category="edibles"
-data-search="cookie gummies gummy edibles packaged confectionery featured"
->
-
-<div class="image-wrap">
-<img src="gummy.jpg" alt="Cookie Gummies product">
-<span class="badge">Featured</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Edibles</div>
-<h3>Cookie Gummies</h3>
-
-<p class="card-description">
-A neatly packaged confectionery-style catalogue item with a colourful presentation.
-</p>
-
-<div class="details">
-<span class="detail-tag">Packaged</span>
-<span class="detail-tag">Confectionery</span>
-<span class="detail-tag">Colourful</span>
-</div>
-
-<button
-class="view-button"
-data-title="Cookie Gummies"
-data-category-name="Edibles"
-data-description="Cookie Gummies are presented as a packaged confectionery-style catalogue item with a colourful appearance. Packaging and presentation may vary between available batches."
-data-tags="Packaged,Confectionery,Colourful"
->
-View Details
-</button>
-</div>
-
-</article>
-
-<!-- CARTS -->
-
-<article
-class="card"
-data-name="Cartridge Collection"
-data-category="extracts"
-data-search="cartridge collection carts extracts packaged compact modern"
->
-
-<div class="image-wrap">
-<img src="thc-carts.jpg" alt="Cartridge Collection">
-<span class="badge">Collection</span>
-</div>
-
-<div class="card-content">
-<div class="card-category">Carts</div>
-<h3>Cartridge Collection</h3>
-
-<p class="card-description">
-A modern packaged catalogue collection with a clean and compact product presentation.
-</p>
-
-<div class="details">
-<span class="detail-tag">Compact</span>
-<span class="detail-tag">Packaged</span>
-<span class="detail-tag">Modern</span>
-</div>
-
-<button
-class="view-button"
-data-title="Cartridge Collection"
-data-category-name="Carts"
-data-description="The Cartridge Collection is displayed as a modern packaged catalogue range with a clean and compact presentation. Product design and packaging may vary."
-data-tags="Compact,Packaged,Modern"
->
-View Details
-</button>
-</div>
-
-</article>
-
-</section>
-
-<div class="empty-message" id="emptyMessage">
-No matching products found.
-</div>
-
+<main class="container">
+  <section class="toolbar">
+    <div class="search">
+      <input id="searchInput" type="text" placeholder="Search products or categories..." aria-label="Search products">
+    </div>
+
+    <div class="filters">
+      <button class="filter active" data-category="all">All</button>
+      <button class="filter" data-category="flower">Flower</button>
+      <button class="filter" data-category="edibles">Edibles</button>
+      <button class="filter" data-category="carts">Carts</button>
+    </div>
+  </section>
+
+  <section class="heading">
+    <h2>Our Collection</h2>
+    <p>Browse the current Velvet Leaf catalogue.</p>
+  </section>
+
+  <section class="grid" id="productGrid">
+
+    <article class="card" data-category="flower" data-search="ak flower classic bold aromatic">
+      <div class="media">
+        <img src="ak.jpg" alt="AK">
+        <span class="badge">Classic</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>AK</h3>
+        <p class="description">A classic catalogue selection with a bold visual presentation and a distinctive aromatic character.</p>
+        <div class="tags"><span class="tag">Classic</span><span class="tag">Bold</span><span class="tag">Aromatic</span></div>
+        <button class="view" data-title="AK" data-category-name="Flower" data-image="ak.jpg" data-description="AK is part of the Velvet Leaf classic collection. Its catalogue profile highlights a bold appearance, detailed presentation and distinctive aromatic character." data-tags="Classic,Bold,Aromatic">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="flower" data-search="lemon kush flower signature citrus bright aromatic">
+      <div class="media">
+        <img src="lemon-kush.jpg" alt="Lemon Kush">
+        <span class="badge">Signature</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>Lemon Kush</h3>
+        <p class="description">A signature catalogue selection recognised for its bright appearance and citrus-inspired aromatic profile.</p>
+        <div class="tags"><span class="tag">Signature</span><span class="tag">Citrus</span><span class="tag">Bright</span></div>
+        <button class="view" data-title="Lemon Kush" data-category-name="Flower" data-image="lemon-kush.jpg" data-description="Lemon Kush belongs to the Velvet Leaf signature collection. Its catalogue profile focuses on a bright visual appearance and citrus-inspired aromatic character." data-tags="Signature,Citrus,Bright">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="flower" data-search="white rhino flower premium earthy dense">
+      <div class="media">
+        <img src="white-rhino.jpg" alt="White Rhino">
+        <span class="badge">Premium</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>White Rhino</h3>
+        <p class="description">A premium catalogue selection with a dense presentation and a rich earthy aromatic character.</p>
+        <div class="tags"><span class="tag">Premium</span><span class="tag">Earthy</span><span class="tag">Dense</span></div>
+        <button class="view" data-title="White Rhino" data-category-name="Flower" data-image="white-rhino.jpg" data-description="White Rhino is presented in the Velvet Leaf premium collection. Its catalogue profile highlights a dense visual structure and rich earthy aromatic character." data-tags="Premium,Earthy,Dense">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="flower" data-search="mango haze flower tropical fruity bright">
+      <div class="media">
+        <img src="mango-haze.jpg" alt="Mango Haze">
+        <span class="badge">Tropical</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>Mango Haze</h3>
+        <p class="description">A bright catalogue selection with a colourful presentation and a tropical fruit-inspired aromatic profile.</p>
+        <div class="tags"><span class="tag">Tropical</span><span class="tag">Fruity</span><span class="tag">Bright</span></div>
+        <button class="view" data-title="Mango Haze" data-category-name="Flower" data-image="mango-haze.jpg" data-description="Mango Haze is displayed as a bright botanical catalogue selection. Its profile focuses on a colourful appearance and tropical fruit-inspired aromatic character." data-tags="Tropical,Fruity,Bright">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="flower" data-search="super boof flower featured colourful fruity">
+      <div class="media">
+        <img src="super-boof.jpg" alt="Super Boof">
+        <span class="badge">Featured</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>Super Boof</h3>
+        <p class="description">A featured catalogue selection with a colourful presentation and a fruit-inspired aromatic profile.</p>
+        <div class="tags"><span class="tag">Featured</span><span class="tag">Colourful</span><span class="tag">Fruity</span></div>
+        <button class="view" data-title="Super Boof" data-category-name="Flower" data-image="super-boof.jpg" data-description="Super Boof is included as a featured Velvet Leaf catalogue selection. Its profile highlights a colourful appearance and fruit-inspired aromatic character." data-tags="Featured,Colourful,Fruity">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="flower" data-search="9ib hammer 9lb hammer flower bold dense earthy">
+      <div class="media">
+        <img src="9ib-hammer.jpg" alt="9Ib Hammer">
+        <span class="badge">Bold</span>
+      </div>
+      <div class="content">
+        <div class="category">Flower</div>
+        <h3>9Ib Hammer</h3>
+        <p class="description">A bold catalogue selection with a dense appearance and a deep earthy aromatic character.</p>
+        <div class="tags"><span class="tag">Bold</span><span class="tag">Dense</span><span class="tag">Earthy</span></div>
+        <button class="view" data-title="9Ib Hammer" data-category-name="Flower" data-image="9ib-hammer.jpg" data-description="9Ib Hammer is presented as a bold botanical catalogue selection. Its profile focuses on a dense visual structure and deep earthy aromatic character." data-tags="Bold,Dense,Earthy">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="edibles" data-search="cookie gummies edible edibles confectionery packaged colourful">
+      <div class="media">
+        <img src="cookie.jpg" alt="Cookie Gummies">
+        <span class="badge">Featured</span>
+      </div>
+      <div class="content">
+        <div class="category">Edibles</div>
+        <h3>Cookie Gummies</h3>
+        <p class="description">A neatly packaged confectionery-style catalogue item with a colourful presentation.</p>
+        <div class="tags"><span class="tag">Packaged</span><span class="tag">Confectionery</span><span class="tag">Colourful</span></div>
+        <button class="view" data-title="Cookie Gummies" data-category-name="Edibles" data-image="cookie.jpg" data-description="Cookie Gummies are presented as a packaged confectionery-style catalogue item with a colourful appearance. Packaging and presentation may vary between batches." data-tags="Packaged,Confectionery,Colourful">View Details</button>
+      </div>
+    </article>
+
+    <article class="card" data-category="carts" data-search="thc carts cartridge collection compact packaged modern">
+      <div class="media">
+        <img src="thc-carts.jpg" alt="Cartridge Collection">
+        <span class="badge">Collection</span>
+      </div>
+      <div class="content">
+        <div class="category">Carts</div>
+        <h3>Cartridge Collection</h3>
+        <p class="description">A modern packaged catalogue collection with a clean and compact product presentation.</p>
+        <div class="tags"><span class="tag">Compact</span><span class="tag">Packaged</span><span class="tag">Modern</span></div>
+        <button class="view" data-title="Cartridge Collection" data-category-name="Carts" data-image="thc-carts.jpg" data-description="The Cartridge Collection is displayed as a modern packaged catalogue range with a clean and compact presentation. Product design and packaging may vary." data-tags="Compact,Packaged,Modern">View Details</button>
+      </div>
+    </article>
+
+  </section>
+
+  <div class="empty" id="emptyMessage">No matching products found.</div>
 </main>
 
-<footer>
-© 2026 Velvet Leaf. Product information is provided for general catalogue purposes only.
-</footer>
+<footer>© 2026 Velvet Leaf. Product information is provided for general catalogue purposes only.</footer>
 
-<div class="modal" id="productModal">
-
-<div class="modal-box">
-
-<button class="close-modal" id="closeModal" aria-label="Close">×</button>
-
-<h2 id="modalTitle"></h2>
-
-<div class="modal-category" id="modalCategory"></div>
-
-<p class="modal-description" id="modalDescription"></p>
-
-<div class="modal-tags" id="modalTags"></div>
-
-</div>
-
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <button class="close" id="closeModal" aria-label="Close">×</button>
+    <div class="modal-layout">
+      <div class="modal-image"><img id="modalImage" src="" alt=""></div>
+      <div class="modal-copy">
+        <h2 id="modalTitle"></h2>
+        <div class="modal-category" id="modalCategory"></div>
+        <p class="modal-description" id="modalDescription"></p>
+        <div class="modal-tags" id="modalTags"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-const searchInput = document.getElementById("searchInput");
-const categoryButtons = document.querySelectorAll(".category-btn");
-const cards = document.querySelectorAll(".card");
-const emptyMessage = document.getElementById("emptyMessage");
+const searchInput=document.getElementById("searchInput");
+const filters=document.querySelectorAll(".filter");
+const cards=document.querySelectorAll(".card");
+const emptyMessage=document.getElementById("emptyMessage");
+let activeCategory="all";
 
-let selectedCategory = "all";
-
-function filterProducts(){
-const searchTerm = searchInput.value.toLowerCase().trim();
-let visibleCount = 0;
-
-cards.forEach(card => {
-const category = card.dataset.category;
-const searchData = card.dataset.search.toLowerCase();
-const name = card.dataset.name.toLowerCase();
-
-const matchesCategory =
-selectedCategory === "all" ||
-category === selectedCategory;
-
-const matchesSearch =
-searchData.includes(searchTerm) ||
-name.includes(searchTerm);
-
-if(matchesCategory && matchesSearch){
-card.style.display = "flex";
-visibleCount++;
-}else{
-card.style.display = "none";
+function applyFilters(){
+  const term=searchInput.value.toLowerCase().trim();
+  let count=0;
+  cards.forEach(card=>{
+    const matchesCategory=activeCategory==="all"||card.dataset.category===activeCategory;
+    const matchesSearch=card.dataset.search.toLowerCase().includes(term);
+    const show=matchesCategory&&matchesSearch;
+    card.style.display=show?"flex":"none";
+    if(show) count++;
+  });
+  emptyMessage.style.display=count?"none":"block";
 }
+searchInput.addEventListener("input",applyFilters);
+filters.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    filters.forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+    activeCategory=btn.dataset.category;
+    applyFilters();
+  });
 });
 
-emptyMessage.style.display =
-visibleCount === 0 ? "block" : "none";
-}
+const modal=document.getElementById("modal");
+const closeModal=document.getElementById("closeModal");
+const modalTitle=document.getElementById("modalTitle");
+const modalCategory=document.getElementById("modalCategory");
+const modalDescription=document.getElementById("modalDescription");
+const modalTags=document.getElementById("modalTags");
+const modalImage=document.getElementById("modalImage");
 
-searchInput.addEventListener("input", filterProducts);
-
-categoryButtons.forEach(button => {
-button.addEventListener("click", () => {
-
-categoryButtons.forEach(item => {
-item.classList.remove("active");
+document.querySelectorAll(".view").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    modalTitle.textContent=btn.dataset.title;
+    modalCategory.textContent=btn.dataset.categoryName;
+    modalDescription.textContent=btn.dataset.description;
+    modalImage.src=btn.dataset.image;
+    modalImage.alt=btn.dataset.title;
+    modalTags.innerHTML="";
+    btn.dataset.tags.split(",").forEach(t=>{
+      const span=document.createElement("span");
+      span.className="tag";
+      span.textContent=t.trim();
+      modalTags.appendChild(span);
+    });
+    modal.classList.add("show");
+    document.body.style.overflow="hidden";
+  });
 });
-
-button.classList.add("active");
-selectedCategory = button.dataset.category;
-
-filterProducts();
-});
-});
-
-const modal = document.getElementById("productModal");
-const closeModal = document.getElementById("closeModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalCategory = document.getElementById("modalCategory");
-const modalDescription = document.getElementById("modalDescription");
-const modalTags = document.getElementById("modalTags");
-const detailButtons = document.querySelectorAll(".view-button");
-
-detailButtons.forEach(button => {
-button.addEventListener("click", () => {
-
-modalTitle.textContent = button.dataset.title;
-modalCategory.textContent = button.dataset.categoryName;
-modalDescription.textContent = button.dataset.description;
-
-modalTags.innerHTML = "";
-
-button.dataset.tags.split(",").forEach(tag => {
-const span = document.createElement("span");
-span.className = "detail-tag";
-span.textContent = tag.trim();
-modalTags.appendChild(span);
-});
-
-modal.classList.add("show");
-document.body.style.overflow = "hidden";
-});
-});
-
 function closeProductModal(){
-modal.classList.remove("show");
-document.body.style.overflow = "";
+  modal.classList.remove("show");
+  document.body.style.overflow="";
 }
-
-closeModal.addEventListener("click", closeProductModal);
-
-modal.addEventListener("click", event => {
-if(event.target === modal){
-closeProductModal();
-}
-});
-
-document.addEventListener("keydown", event => {
-if(event.key === "Escape"){
-closeProductModal();
-}
-});
+closeModal.addEventListener("click",closeProductModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeProductModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeProductModal()});
 </script>
-
 </body>
 </html>
