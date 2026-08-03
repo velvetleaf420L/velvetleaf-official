@@ -1,6 +1,4 @@
-from pathlib import Path
-
-css = r'''/* =========================================================
+/* =========================================================
    VELVET LEAF — MAIN SITE STYLES
    Cleaned, corrected and mobile-safe
    ========================================================= */
@@ -642,8 +640,3 @@ footer{
         transition-duration:.01ms !important;
     }
 }
-'''
-
-path = Path("/mnt/data/style.css")
-path.write_text(css, encoding="utf-8")
-print(f"Created {path} ({path.stat().st_size:,} bytes)")
