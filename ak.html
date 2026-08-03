@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AK | Velvet Leaf Product Catalogue</title>
+<meta name="description" content="Explore AK in the Velvet Leaf curated product catalogue.">
+<meta property="og:title" content="AK | Velvet Leaf">
+<meta property="og:description" content="Explore AK in the Velvet Leaf curated product catalogue.">
+<meta property="og:image" content="https://officialvelvetleaf.com/ak.jpg">
+<meta property="og:url" content="https://officialvelvetleaf.com/ak.html">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="velvet-logo.png">
+
+<style>
+:root{
+  --bg:#070707;
+  --panel:#111;
+  --panel2:#171717;
+  --gold:#d9b65f;
+  --gold-dark:#9d7832;
+  --text:#f5f5f5;
+  --muted:#aaa;
+  --border:#2b2b2b;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 15% 0%,rgba(217,182,95,.10),transparent 28%),
+    linear-gradient(180deg,#0b0b0b 0%,#070707 62%,#050505 100%);
+  color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 22px;
+  background:rgba(7,7,7,.88);
+  border-bottom:1px solid rgba(217,182,95,.22);
+  backdrop-filter:blur(14px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.brand img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+
+.brand span{
+  color:var(--gold);
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:.7px;
+}
+
+.top-actions{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.small-btn{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid #3d3d3d;
+  background:#111;
+  color:#d7d7d7;
+  font-size:13px;
+  transition:.2s;
+}
+
+.small-btn:hover{
+  border-color:var(--gold-dark);
+  color:var(--gold);
+}
+
+.hero{
+  width:min(1280px,100%);
+  margin:0 auto;
+  padding:48px 22px 28px;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr);
+  gap:34px;
+  align-items:stretch;
+}
+
+.image-panel{
+  position:relative;
+  min-height:590px;
+  overflow:hidden;
+  border-radius:28px;
+  border:1px solid #303030;
+  background:#101010;
+  box-shadow:0 25px 70px rgba(0,0,0,.48);
+}
+
+.image-panel img{
+  width:100%;
+  height:100%;
+  min-height:590px;
+  object-fit:cover;
+  display:block;
+}
+
+.image-panel:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.40));
+  pointer-events:none;
+}
+
+.badge{
+  position:absolute;
+  top:18px;
+  left:18px;
+  z-index:2;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(5,5,5,.82);
+  border:1px solid rgba(217,182,95,.65);
+  color:#efd278;
+  font-size:12px;
+  font-weight:700;
+  backdrop-filter:blur(8px);
+}
+
+.copy-panel{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:38px;
+  border-radius:28px;
+  border:1px solid #2b2b2b;
+  background:linear-gradient(145deg,rgba(24,24,24,.95),rgba(12,12,12,.97));
+  box-shadow:0 22px 60px rgba(0,0,0,.38);
+}
+
+.eyebrow{
+  color:#a8873e;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+h1{
+  color:#efcf75;
+  font-size:clamp(42px,7vw,72px);
+  line-height:.98;
+  letter-spacing:-1.5px;
+}
+
+.lead{
+  margin-top:22px;
+  color:#c2c2c2;
+  font-size:17px;
+  line-height:1.8;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:24px;
+}
+
+.tag{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid #353535;
+  background:#1a1a1a;
+  color:#cfcfcf;
+  font-size:12px;
+}
+
+.main-actions{
+  display:flex;
+  gap:11px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.primary-btn,
+.secondary-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:13px 19px;
+  border-radius:12px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.primary-btn{
+  background:var(--gold);
+  color:#080808;
+  border:1px solid var(--gold);
+}
+
+.primary-btn:hover{
+  background:#efd278;
+}
+
+.secondary-btn{
+  color:var(--gold);
+  border:1px solid var(--gold-dark);
+  background:transparent;
+}
+
+.secondary-btn:hover{
+  background:rgba(217,182,95,.08);
+}
+
+.section{
+  width:min(1280px,100%);
+  margin:0 auto;
+  padding:34px 22px;
+}
+
+.section-title{
+  color:#efd278;
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.section-subtitle{
+  color:#858585;
+  font-size:14px;
+  margin-bottom:22px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+
+.info-card{
+  min-height:170px;
+  padding:22px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,#161616,#0e0e0e);
+}
+
+.info-card h3{
+  color:#e4c56c;
+  font-size:17px;
+  margin-bottom:11px;
+}
+
+.info-card p{
+  color:#aaa;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.related-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+}
+
+.related{
+  overflow:hidden;
+  border-radius:18px;
+  border:1px solid #292929;
+  background:#111;
+  transition:.22s;
+}
+
+.related:hover{
+  transform:translateY(-4px);
+  border-color:#8f6e2f;
+}
+
+.related img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  display:block;
+}
+
+.related-copy{
+  padding:17px;
+}
+
+.related-copy span{
+  color:#9e803d;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.related-copy h3{
+  margin-top:6px;
+  color:#ead074;
+  font-size:19px;
+}
+
+footer{
+  margin-top:28px;
+  padding:30px 20px;
+  text-align:center;
+  border-top:1px solid #222;
+  color:#747474;
+  font-size:13px;
+}
+
+@media(max-width:960px){
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .image-panel,
+  .image-panel img{
+    min-height:480px;
+  }
+
+  .copy-panel{
+    padding:30px;
+  }
+
+  .info-grid,
+  .related-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:620px){
+  .topbar{
+    align-items:flex-start;
+    padding:12px 14px;
+  }
+
+  .brand span{
+    display:none;
+  }
+
+  .small-btn{
+    padding:9px 11px;
+    font-size:12px;
+  }
+
+  .hero{
+    padding:26px 14px 20px;
+  }
+
+  .hero-grid{
+    gap:18px;
+  }
+
+  .image-panel,
+  .image-panel img{
+    min-height:345px;
+  }
+
+  .copy-panel{
+    padding:24px 19px;
+  }
+
+  .lead{
+    font-size:15px;
+  }
+
+  .main-actions{
+    flex-direction:column;
+  }
+
+  .primary-btn,
+  .secondary-btn{
+    width:100%;
+  }
+
+  .section{
+    padding:28px 14px;
+  }
+
+  .info-grid,
+  .related-grid{
+    grid-template-columns:1fr;
+  }
+
+  .related img{
+    height:230px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="topbar">
+  <a class="brand" href="/">
+    <img src="velvet-logo.png" alt="Velvet Leaf">
+    <span>VELVET LEAF</span>
+  </a>
+
+  <div class="top-actions">
+    <a class="small-btn" href="/">Home</a>
+    <a class="small-btn" href="/products">Catalogue</a>
+    <a class="small-btn" href="/about.html">About</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero">
+  <div class="hero-grid">
+
+    <div class="image-panel">
+      <img src="ak.jpg" alt="AK">
+      <span class="badge">Classic Collection</span>
+    </div>
+
+    <div class="copy-panel">
+      <div class="eyebrow">Flower · Product Catalogue</div>
+      <h1>AK</h1>
+
+      <p class="lead">
+        AK is presented as part of the Velvet Leaf classic collection,
+        recognised for its bold visual character and distinctive aromatic profile.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Classic</span>
+        <span class="tag">Bold</span>
+        <span class="tag">Aromatic</span>
+        <span class="tag">Curated</span>
+      </div>
+
+      <div class="main-actions">
+        <a class="primary-btn" href="/products">Back to Catalogue</a>
+        <a class="secondary-btn" href="/">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Product Overview</h2>
+  <p class="section-subtitle">A closer look at the catalogue profile.</p>
+
+  <div class="info-grid">
+
+    <article class="info-card">
+      <h3>Collection</h3>
+      <p>
+        Part of the Velvet Leaf classic collection, selected for a clear and recognisable presentation.
+      </p>
+    </article>
+
+    <article class="info-card">
+      <h3>Visual Profile</h3>
+      <p>
+        A bold botanical appearance with a dense and detailed visual structure.
+      </p>
+    </article>
+
+    <article class="info-card">
+      <h3>Aromatic Character</h3>
+      <p>
+        A distinctive aromatic catalogue profile presented in a clean, neutral format.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">Related Products</h2>
+  <p class="section-subtitle">Continue browsing the Velvet Leaf collection.</p>
+
+  <div class="related-grid">
+
+    <a class="related" href="/products">
+      <img src="lemon-kush.jpg" alt="Lemon Kush">
+      <div class="related-copy">
+        <span>Flower</span>
+        <h3>Lemon Kush</h3>
+      </div>
+    </a>
+
+    <a class="related" href="/products">
+      <img src="white-rhino.jpg" alt="White Rhino">
+      <div class="related-copy">
+        <span>Flower</span>
+        <h3>White Rhino</h3>
+      </div>
+    </a>
+
+    <a class="related" href="/products">
+      <img src="mango-haze.jpg" alt="Mango Haze">
+      <div class="related-copy">
+        <span>Flower</span>
+        <h3>Mango Haze</h3>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Velvet Leaf. Product information is provided for general catalogue purposes only.
+</footer>
+
+</body>
+</html>
