@@ -2063,3 +2063,70 @@ box-shadow:0 0 18px rgba(212,175,55,.7);
     font-size: 18px;
   }
 }
+
+/* =========================================================
+   FINAL MOBILE HOMEPAGE IMAGE FIX
+   Keeps the full featured/product artwork visible on phones.
+   ========================================================= */
+@media (max-width: 620px) {
+  .hero-feature-card {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .hero-feature-card::after {
+    display: none !important;
+  }
+
+  .hero-feature-card > img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #0b0b0b;
+    transform: none !important;
+  }
+
+  .hero-card-label {
+    top: 14px;
+    left: 14px;
+  }
+
+  .hero-feature-content {
+    position: static !important;
+    padding: 22px 20px 24px;
+    background: #0d0d0d;
+  }
+
+  .hero-feature-content h2 {
+    font-size: 36px;
+  }
+
+  .hero-feature-bottom {
+    flex-wrap: wrap;
+  }
+
+  .product-image {
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+
+  .product-image::after {
+    display: none !important;
+  }
+
+  .product-image img {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    background: #0b0b0b;
+  }
+}
