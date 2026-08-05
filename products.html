@@ -205,10 +205,32 @@ footer{
   .hero{padding-top:34px}
   .filters{justify-content:flex-start}
   .grid{grid-template-columns:1fr;gap:18px}
-  .media{height:250px}
+
+  /* Mobile: show the complete product image instead of cropping it */
+  .media{
+    height:auto;
+    aspect-ratio:16 / 10;
+    background:#101010;
+  }
+  .media img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+  .card:hover .media img{transform:none}
+
   .description{min-height:auto}
   .modal-layout{grid-template-columns:1fr}
-  .modal-image{min-height:260px;height:260px}
+  .modal-image{
+    min-height:0;
+    height:auto;
+    aspect-ratio:16 / 10;
+  }
+  .modal-image img{
+    object-fit:contain;
+    object-position:center;
+  }
   .modal-copy{padding:23px 19px}
   .modal-copy h2{font-size:27px}
 }
