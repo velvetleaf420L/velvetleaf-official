@@ -1946,8 +1946,10 @@ box-shadow:0 0 18px rgba(212,175,55,.7);
     margin-bottom: 38px;
   }
 
-  .menu-v3-banner {
-    aspect-ratio: 1.45 / 1;
+   .menu-v3-banner {
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
     object-position: center;
     border-radius: 16px;
   }
@@ -2028,7 +2030,9 @@ box-shadow:0 0 18px rgba(212,175,55,.7);
   }
 
   .menu-v3-banner {
-    aspect-ratio: 1.28 / 1;
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
   }
 
   .menu-v3-price-grid strong {
